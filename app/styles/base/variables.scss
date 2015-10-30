@@ -1,0 +1,67 @@
+//
+// Variables
+// --------------------------------------------------
+
+//colors
+$brand-primary: 			#932923;
+$brand-secondary: 			$body-bg;
+
+$text-color: 				#777;
+
+$color-facebook: 			#3b5998;
+$color-twitter: 			#00aced;
+$color-googleplus: 			#dd4b39;
+$color-pinterest: 			#cb2027;
+$color-linkedin: 			#007bb6;
+
+$grey: 						#bdbdbd;
+$grey-variant-1: 			#e7e7e8;
+$grey-variant-2: 			#787878;
+$grey-variant-3: 			#a8a8a8;
+$grey-variant-4: 			#989a9d;
+
+//breakpoints
+$grid-columns:              12;
+$grid-gutter-width:         20px;
+$grid-float-breakpoint:     $screen-md-min;
+//@container-large-desktop:  	1260px;
+$container-lg:              $container-large-desktop;
+
+
+
+
+$screen-xs:                  480px;
+$screen-sm:                  568px;
+$screen-md:                  1024px;
+$screen-lg:                  1500px;
+
+$screen-md-m: 				 1023px;
+
+
+
+
+$grid-float-breakpoint:		$screen-md;
+
+// Small screen / tablet
+$container-tablet:			568px; 
+//** For `@screen-sm-min` and up.
+$container-sm:				$container-tablet;
+
+// Medium screen / desktop
+$container-desktop:			960px; 
+//** For `@screen-md-min` and up.
+$container-md:				$container-desktop;
+
+// Large screen / wide desktop
+$container-large-desktop:	1260px; 
+//** For `@screen-lg-min` and up.
+$container-lg:				$container-large-desktop;
+
+
+
+
+//fonts
+//$font-family-base: 			"Raleway", sans-serif;
+//$font-family-serif: 		"Cardo", serif;
+//$font-family-sans-serif:	"Raleway", sans-serif;
+//$font-family-icons: 		"icomoon", sans-serif;

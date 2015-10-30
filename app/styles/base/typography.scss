@@ -1,0 +1,15 @@
+//
+// Typography
+// --------------------------------------------------
+
+h1 {
+	line-height: 0;
+	text-align: center;
+
+	@include font-size(30);
+
+	span {
+		display: inline-block;
+		min-height: 100px;
+	}
+}

@@ -1,0 +1,76 @@
+//
+// Icons
+// --------------------------------------------------
+
+@mixin icon-scaffold() {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	@include icon-scaffold();
+}
+
+.icon-container {
+  height: 50%;
+  left: 50%;
+  position: absolute;
+  transform-origin: 0% 100%;
+
+  .icon {
+    display: block;
+    height: 100px;
+    margin: 0 auto 0 -50px;
+    position: relative;
+    top: 0px;
+    width: 100px;
+
+    .icon-image {
+      background-color: #fff;
+    }
+
+    &:before,
+    .icon-image {
+      border: solid 2px #ddd;
+      border-radius: 100%;
+      content: "";
+      height: 100%;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0px;
+      width: 100%;
+
+      img {
+        display: block;
+        margin: 8% auto 0;
+        width: 84%;
+      }
+    }
+
+    &:before {
+      
+      opacity: 1;
+    }
+
+    &:hover,
+    &.selected {
+      &:before {
+        border: solid 1px #ddd;
+        transform: scale(2, 2);
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.2s;
+      }
+    }
+  }
+}

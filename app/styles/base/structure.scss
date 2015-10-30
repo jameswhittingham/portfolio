@@ -1,0 +1,25 @@
+//
+// Structure
+// --------------------------------------------------
+
+html,
+body {
+  background-color: #091621;
+}
+
+.stage {
+  margin: 40px 0;
+  padding-top: 100%;
+
+  .stage-inner {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.hero {
+  height:100vh;
+}
