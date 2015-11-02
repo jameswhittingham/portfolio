@@ -25,7 +25,7 @@ angular.module('portfolioApp.directives', [])
 
       $.each(text, function(key,value){
         console.log(value);
-        newText += "<span class='col-xs-2' spin-text ind='"+key+"'>"+value+"</span>";
+        newText += "<span class='col-fifth' spin-text ind='"+key+"'>"+value+"</span>";
       })
 
       $this.html($compile(newText)(scope));
@@ -53,6 +53,7 @@ angular.module('portfolioApp.directives', [])
 
       function triggerSpin() {
         ind = 0;
+        $interval.cancel(spinInterval);
         spinInterval = $interval(spinText, 120, repetitions);
       }
 
@@ -71,3 +72,31 @@ angular.module('portfolioApp.directives', [])
     }
   };
 })
+
+.directive('spotlight', function(){
+    return {
+      link: function(scope, element, attrs){
+        var $window = $(window);
+
+        $window.on('mousemove', function(e){
+          
+          var x = e.clientX,
+            y = e.clientY,
+            w = $window.width(),
+            h = $window.height();
+
+          var centerX = w/2,
+            centerY = h/2;
+
+          var newX = -x + centerX,
+            newY = -y + centerY;
+
+          scope.bgX = newX;
+          scope.bgY = newY;
+          scope.$apply();
+        })
+      }
+    }
+})
+
+

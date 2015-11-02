@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('portfolioApp', [ 'ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'portfolioApp.services', 'portfolioApp.directives'])
+angular.module('portfolioApp', [ 'ngRoute', 'portfolioApp.services', 'portfolioApp.directives'])
 .config(function ($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: 'views/main.html',

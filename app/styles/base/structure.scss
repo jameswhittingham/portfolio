@@ -4,7 +4,11 @@
 
 html,
 body {
-  background-color: #091621;
+  background-color: $background-primary;
+}
+
+.col-fifth {
+  width: 20%;
 }
 
 .stage {
