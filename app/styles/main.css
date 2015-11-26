@@ -4,6 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
 /* line 9, ../scripts/vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
   font-family: sans-serif;
@@ -1716,7 +1717,7 @@ html {
 
 /* line 27, ../scripts/vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/_scaffolding.scss */
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Poiret One", cursive;
   font-size: 14px;
   line-height: 1.42857;
   color: #777;
@@ -6845,6 +6846,19 @@ button.close {
     transform: rotate(360deg);
   }
 }
+@keyframes toTop {
+  0% {
+    bottom: 5%;
+    opacity: 1;
+  }
+  99% {
+    bottom: 105%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 /*
 @font-face {
 	font-family: 'icomoon';
@@ -6857,6 +6871,10 @@ button.close {
 	font-style: normal;
 }
 */
+/*@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,900italic,900,700italic,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Sarina);*/
 /* line 19, base/icons.scss */
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
@@ -6957,7 +6975,7 @@ body {
 /* line 5, base/typography.scss */
 h1 {
   line-height: 0;
-  text-align: center;
+  text-align: left;
   text-shadow: 8px 7px 10px rgba(0, 0, 0, 0.5);
   font-size: 230px;
   font-size: 23rem;
@@ -6968,6 +6986,12 @@ h1 {
 h1 span {
   display: inline-block;
   min-height: 100px;
+  text-align: center;
+}
+
+/* line 20, base/typography.scss */
+h2 {
+  margin: 0px 0 30px 150px;
 }
 
 /* line 5, base/vertical-center.scss */
@@ -6991,6 +7015,16 @@ h1 span {
   display: table-cell;
   vertical-align: middle;
   overflow-y: auto;
+}
+
+/* line 5, base/sections.scss */
+body {
+  background-color: #0D2133;
+}
+
+/* line 9, base/sections.scss */
+main {
+  background: url(../images/bg.png);
 }
 
 /* line 7, modules/responsive-embed.scss */
@@ -7034,9 +7068,73 @@ h1 span {
   position: fixed;
   top: -25%;
   width: 150%;
-  background-image: -webkit-radial-gradient(circle, #0D2133 10%, #091621 50%);
-  background-image: radial-gradient(circle, #0d2133 10%, #091621 50%);
+  background-image: -webkit-radial-gradient(circle, rgba(255, 255, 255, 0) 0%, #091621 80%);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, #091621 80%);
   background-repeat: no-repeat;
+}
+
+/* line 5, modules/invader.scss */
+ship {
+  bottom: 0px;
+  left: 50%;
+  margin-left: -35px;
+  position: absolute;
+  text-align: center;
+}
+/* line 14, modules/invader.scss */
+ship .barrel {
+  background-color: #583B3B;
+  display: block;
+  height: 5px;
+  margin: 0 auto;
+  position: relative;
+  width: 5px;
+  z-index: 4;
+}
+/* line 24, modules/invader.scss */
+ship .turret {
+  background-color: #583B3B;
+  display: block;
+  height: 10px;
+  margin: 0 auto;
+  position: relative;
+  width: 15px;
+  z-index: 3;
+}
+/* line 34, modules/invader.scss */
+ship .body {
+  background-color: #583B3B;
+  display: block;
+  height: 5px;
+  margin: 0 auto;
+  position: relative;
+  width: 60px;
+  z-index: 2;
+}
+/* line 44, modules/invader.scss */
+ship .body-main {
+  background-color: #583B3B;
+  display: block;
+  height: 20px;
+  margin: 0 auto;
+  position: relative;
+  width: 70px;
+  z-index: 1;
+}
+
+/* line 55, modules/invader.scss */
+.bullet {
+  background-color: red;
+  border: solid 1px red;
+  border-radius: 3px;
+  bottom: 40px;
+  height: 7px;
+  margin-left: -35px;
+  position: absolute;
+  width: 3px;
+  -webkit-animation: toTop 1s forwards;
+  -o-animation: toTop 1s forwards;
+  animation: toTop 1s forwards;
 }
 
 /*# sourceMappingURL=main.css.map */

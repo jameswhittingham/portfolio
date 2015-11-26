@@ -31,4 +31,19 @@ angular.module('portfolioApp')
   		
   	}, timeTrigger);
   }
+
+  $scope.getPosition = function(evt) {
+    $scope.mouseX = evt.clientX;
+    $scope.mouseY = evt.clientY;
+  }
+
+  $scope.getPositive = function(num) {
+
+    if (num>-120) {
+      return -400
+    } else {
+      return num;
+    }
+    
+  }
 });

@@ -6,3 +6,9 @@
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+
+@keyframes toTop {
+    0% { bottom: 5%; opacity: 1; }
+    99% { bottom: 105%; opacity: 1; }
+    100% { opacity: 0; }
+}

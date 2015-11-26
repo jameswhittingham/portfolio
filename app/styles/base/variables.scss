@@ -3,6 +3,11 @@
 // --------------------------------------------------
 
 //colors
-$text-color: 				#777;
+$grey: 					#777;
+$grey-variant:			#583B3B;
 
-$background-primary: 		#091621;
+$text-color: 			$grey;
+
+$background-primary: 	#091621;
+
+$font-family-base: 		'Poiret One', cursive;

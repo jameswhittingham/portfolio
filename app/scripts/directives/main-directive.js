@@ -99,4 +99,29 @@ angular.module('portfolioApp.directives', [])
     }
 })
 
+.directive('ship', function($timeout, $document){
+    return {
+      link: function(scope, element, attrs){
+
+        /*scope.$watch('mouseX', function(newValue, oldValue) {
+          $timeout(function() {
+              scope.waitMouseX = scope.mouseX - 35;
+              scope.$apply();
+          }, 500);
+        });*/
+
+        $document.keydown(function(e){
+          if (e.keyCode === 32 || e.charCode === 32) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            $(element).before('<span class="bullet" style="left:' + (scope.mouseX + 35) + 'px"></span>');
+
+            scope.$apply();
+          }
+        })
+      }
+    }
+})
+
 

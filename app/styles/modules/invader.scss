@@ -1,0 +1,66 @@
+//
+// Invader
+// --------------------------------------------------
+
+ship {
+	bottom: 0px;
+	left: 50%;
+	margin-left: -35px;
+	position: absolute;
+	text-align: center;
+
+	//@include transition(all 0.1s);
+
+	.barrel {
+		background-color: $grey-variant;
+		display: block;
+		height: 5px;
+		margin: 0 auto;
+		position: relative;
+		width: 5px;
+		z-index: 4;
+	}
+
+	.turret {
+		background-color: $grey-variant;
+		display: block;
+		height: 10px;
+		margin: 0 auto;
+		position: relative;
+		width: 15px;
+		z-index: 3;
+	}
+
+	.body {
+		background-color: $grey-variant;
+		display: block;
+		height: 5px;
+		margin: 0 auto;
+		position: relative;
+		width: 60px;
+		z-index: 2;
+	}
+
+	.body-main {
+		background-color: $grey-variant;
+		display: block;
+		height: 20px;
+		margin: 0 auto;
+		position: relative;
+		width: 70px;
+		z-index: 1;
+	}
+}
+
+.bullet {
+	background-color: red;
+	border: solid 1px red;
+	border-radius: 3px;
+	bottom: 40px;
+	height: 7px;
+	margin-left: -35px;
+	position: absolute;
+	width: 3px;
+
+	@include animation(toTop 1s forwards);
+}

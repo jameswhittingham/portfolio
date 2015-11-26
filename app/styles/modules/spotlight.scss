@@ -10,5 +10,5 @@
 	top: -25%;
 	width: 150%;
 
-	@include gradient-radial(#0D2133 10%, $background-primary 50%);
+	@include gradient-radial(rgba(255,255,255,0) 0%, $background-primary 80%);
 }
