@@ -5,6 +5,10 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,900italic,900,700italic,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Sarina);
 /* line 9, ../scripts/vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
   font-family: sans-serif;
@@ -6859,6 +6863,26 @@ button.close {
     opacity: 0;
   }
 }
+@keyframes explode {
+  0% {
+    height: 1px;
+    width: 1px;
+  }
+  60% {
+    opacity: 1;
+  }
+  99% {
+    display: inline-block;
+    height: 100px;
+    margin: -50px 0 0 -50px;
+    opacity: 0;
+    width: 100px;
+  }
+  100% {
+    border-color: transparent;
+    display: none;
+  }
+}
 /*
 @font-face {
 	font-family: 'icomoon';
@@ -6871,10 +6895,6 @@ button.close {
 	font-style: normal;
 }
 */
-/*@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
-@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700);
-@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,900italic,900,700italic,700,400italic);
-@import url(http://fonts.googleapis.com/css?family=Sarina);*/
 /* line 19, base/icons.scss */
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
@@ -6981,17 +7001,41 @@ h1 {
   font-size: 23rem;
   opacity: 0.7;
   filter: alpha(opacity=70);
+  font-size: 18vmin;
 }
-/* line 13, base/typography.scss */
+/* line 14, base/typography.scss */
 h1 span {
   display: inline-block;
   min-height: 100px;
   text-align: center;
 }
+/* line 19, base/typography.scss */
+h1 span.fontA {
+  font-family: "Abril Fatface", cursive;
+}
+/* line 22, base/typography.scss */
+h1 span.fontB {
+  font-family: "Amatic SC", cursive;
+}
+/* line 25, base/typography.scss */
+h1 span.fontC {
+  font-family: "Playfair Display", cursive;
+}
+/* line 28, base/typography.scss */
+h1 span.fontD {
+  font-family: "Sarina", cursive;
+}
 
-/* line 20, base/typography.scss */
+/* line 34, base/typography.scss */
 h2 {
-  margin: 0px 0 30px 150px;
+  font-size: 4vmin;
+  margin: 0px 0 7% 10%;
+}
+@media (min-width: 992px) {
+  /* line 34, base/typography.scss */
+  h2 {
+    font-size: 2vmin;
+  }
 }
 
 /* line 5, base/vertical-center.scss */
@@ -7123,18 +7167,43 @@ ship .body-main {
 }
 
 /* line 55, modules/invader.scss */
-.bullet {
+.bullet-outer {
+  height: 7px;
+  bottom: 40px;
+  position: absolute;
+  width: 3px;
+}
+/* line 61, modules/invader.scss */
+.bullet-outer .bullet {
   background-color: red;
   border: solid 1px red;
   border-radius: 3px;
-  bottom: 40px;
   height: 7px;
+  left: 0px;
   margin-left: -35px;
   position: absolute;
+  top: 0px;
   width: 3px;
-  -webkit-animation: toTop 1s forwards;
-  -o-animation: toTop 1s forwards;
-  animation: toTop 1s forwards;
+  -webkit-transition: top 0.09s;
+  -o-transition: top 0.09s;
+  transition: top 0.09s;
+}
+/* line 74, modules/invader.scss */
+.bullet-outer .bullet.explode {
+  background-color: transparent;
+  border: solid 1px transparent;
+}
+/* line 78, modules/invader.scss */
+.bullet-outer .bullet.explode:before {
+  border: solid 1px red;
+  border-radius: 100%;
+  content: "";
+  height: 1px;
+  position: absolute;
+  width: 1px;
+  -webkit-animation: explode 0.3s forwards;
+  -o-animation: explode 0.3s forwards;
+  animation: explode 0.3s forwards;
 }
 
 /*# sourceMappingURL=main.css.map */

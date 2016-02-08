@@ -8,7 +8,7 @@
  * Controller of the portfolioApp
  */
 angular.module('portfolioApp')
-.controller('MainCtrl', function ($scope, fileService, $interval) {
+.controller('MainCtrl', function ($scope, fileService, $interval, $compile, $document) {
 
   fileService.getFile('scripts/data/skills.js').then(function(data){
     $scope.skills = data.skills;
@@ -44,6 +44,6 @@ angular.module('portfolioApp')
     } else {
       return num;
     }
-    
   }
+    
 });

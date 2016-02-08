@@ -39,11 +39,13 @@ angular.module('portfolioApp.directives', [])
       
       var $this = $(element),
         chars = "abcdefghijklmnopqrstuvwxyz",
+        classes = ['fontA','fontB','fontC','fontD',],
         initialVal = element.html(),
         key = attrs.ind,
         spinInterval, 
         ind = 0, 
-        repetitions = 10;
+        repetitions = 10, 
+        classIncrement = 0;
 
       $timeout(function(){
         triggerSpin();
@@ -68,6 +70,28 @@ angular.module('portfolioApp.directives', [])
           $this.html(initialVal);
         }
       }
+
+      //Listen to the init map event to be triggered
+      document.addEventListener("explode", function(e) {
+        var pos = $this.offset(),
+          letterLeft = pos.left,
+          letterRight = letterLeft + $this.width(),
+          bulletLeft = e.detail.x;
+          
+        if ((bulletLeft > letterLeft) && ( bulletLeft < letterRight)) {
+          triggerSpin();
+
+          $this.removeClass(classes[classIncrement])
+          if (classIncrement<classes.length) {
+            classIncrement +=1;
+          } else {
+            classIncrement = 0;
+          }
+
+
+          $this.addClass(classes[classIncrement])
+        }
+      });
 
     }
   };
@@ -99,27 +123,54 @@ angular.module('portfolioApp.directives', [])
     }
 })
 
-.directive('ship', function($timeout, $document){
+.directive('ship', function($timeout, $document, $compile, $document){
     return {
       link: function(scope, element, attrs){
-
-        /*scope.$watch('mouseX', function(newValue, oldValue) {
-          $timeout(function() {
-              scope.waitMouseX = scope.mouseX - 35;
-              scope.$apply();
-          }, 500);
-        });*/
 
         $document.keydown(function(e){
           if (e.keyCode === 32 || e.charCode === 32) {
             e.preventDefault();
             e.stopPropagation();
 
-            $(element).before('<span class="bullet" style="left:' + (scope.mouseX + 35) + 'px"></span>');
-
-            scope.$apply();
+            var template = '<bullet class="bullet-outer" style="left:' + (scope.mouseX + 35) + 'px;"></bullet>',
+            ship = $document.find(element);
+            ship.before($compile(template)(scope));
           }
         })
+
+      }
+    }
+})
+
+.directive('bullet', function($timeout, $interval, $compile){
+    return {
+      //replace: true,
+      scope: { top: '@', cls: '@' },
+      template: '<span class="bullet {{cls}}" style="top:-{{top}}px;"></span>',
+      link: function(scope, element, attrs){
+        var midpoint = window.innerHeight*0.41;//window.innerHeight/2 - 75;
+        scope.top = 0;
+
+        var thisInterval = $interval(function(){
+
+          if (midpoint>scope.top) {
+            scope.top += 50;
+          } else {
+            scope.cls = "explode";
+
+            $interval.cancel(thisInterval);
+
+            // Create the event
+            var event = new CustomEvent("explode", { 'detail': { x: scope.$parent.mouseX } });
+            // Fire the event
+            document.dispatchEvent(event);
+
+
+
+          };
+
+        }, 90)
+
       }
     }
 })

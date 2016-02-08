@@ -12,3 +12,24 @@
     99% { bottom: 105%; opacity: 1; }
     100% { opacity: 0; }
 }
+
+@keyframes explode {
+    0% { 
+    	height: 1px; 
+    	width: 1px; 
+    }
+    60% {
+    	opacity: 1;
+    }
+    99% { 
+    	display: inline-block;
+    	height: 100px; 
+    	margin: -50px 0 0 -50px; 
+    	opacity: 0;
+    	width: 100px; 
+    }
+    100% {
+    	border-color: transparent;
+    	display: none;
+    }
+}

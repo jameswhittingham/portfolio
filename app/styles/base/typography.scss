@@ -9,14 +9,33 @@ h1 {
 
 	@include font-size(23);
 	@include opacity(0.7);
+	font-size: 18vmin;
 
 	span {
 		display: inline-block;
 		min-height: 100px;
 		text-align: center;
+
+		&.fontA {
+			font-family: $font-family-A;
+		}
+		&.fontB {
+			font-family: $font-family-B;
+		}
+		&.fontC {
+			font-family: $font-family-C;
+		}
+		&.fontD {
+			font-family: $font-family-D;
+		}
 	}
 }
 
 h2 {
-	margin: 0px 0 30px 150px
+	font-size: 4vmin;
+	margin: 0px 0 7% 10%;	
+
+	@media (min-width: $screen-md) {
+		font-size: 2vmin;		
+	}
 }
