@@ -4,12 +4,17 @@
 
 ship {
 	bottom: 0px;
+	display: none;
 	left: 50%;
 	margin-left: -35px;
 	position: absolute;
 	text-align: center;
 
 	//@include transition(all 0.1s);
+
+	@media (min-width: $screen-sm) {
+		display: block;
+	}
 
 	.barrel {
 		background-color: $grey-variant;

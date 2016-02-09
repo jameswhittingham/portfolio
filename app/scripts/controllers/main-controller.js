@@ -32,10 +32,10 @@ angular.module('portfolioApp')
   	}, timeTrigger);
   }
 
-  $scope.getPosition = function(evt) {
+  /*$scope.getPosition = function(evt) {
     $scope.mouseX = evt.clientX;
     $scope.mouseY = evt.clientY;
-  }
+  }*/
 
   $scope.getPositive = function(num) {
 
@@ -45,5 +45,40 @@ angular.module('portfolioApp')
       return num;
     }
   }
-    
+
+
+  function initParallax() {
+    var $win = $(window);
+    // init controller
+    var controller = new ScrollMagic.Controller();
+
+
+    // build tween
+    /*var tween = new TimelineMax().add([
+      TweenMax.fromTo(".something", 1, {opacity: 0}, {opacity: 1})
+    ])
+
+    // build scene
+    var scene = new ScrollMagic.Scene({
+      triggerElement: ".something",
+      duration: "10%",
+      offset: -$win.height()/4
+    })
+    //.setClassToggle(".something", "active")
+    .setTween(tween)
+    .addTo(controller);*/
+
+
+    // build scene
+    var scene1 = new ScrollMagic.Scene({
+      triggerElement: ".scene100",
+      duration: "100%",
+      offset: $win.height()/2
+    })
+    .setClassToggle(".scene100", "active")
+    .addTo(controller);
+
+  }
+  initParallax()
+
 });

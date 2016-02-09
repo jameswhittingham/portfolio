@@ -5,23 +5,26 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+
+    <!-- Custom styles -->
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-app="portfolioApp">
-    <!--<span style="color: #fff; position:fixed; z-index:9;">
-      x = {{ bgX }}<br/>
-      y = {{ bgY }}
-    </span>-->
-
     <div class="spotlight" spotlight style="background-position:{{-bgX/3}}px {{-bgY/3}}px;"></div>
 
     <div ng-view=""></div>    
 
+    <!-- Vendor Scripts -->
     <script src="scripts/vendor/jquery/dist/jquery.js"></script>
     <script src="scripts/vendor/angular/angular.js"></script>
     <script src="scripts/vendor/angular-route/angular-route.js"></script>
     <script src="scripts/vendor/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-      
+    <!-- ScrollMagic scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+    <script src="scripts/vendor/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+    
+    <!-- Custom scripts -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main-controller.js"></script>
     <script src="scripts/services/main-service.js"></script>

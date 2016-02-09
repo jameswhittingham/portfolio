@@ -102,12 +102,17 @@ angular.module('portfolioApp.directives', [])
       link: function(scope, element, attrs){
         var $window = $(window);
 
+
+
         $window.on('mousemove', function(e){
           
           var x = e.clientX,
             y = e.clientY,
             w = $window.width(),
             h = $window.height();
+
+          scope.mouseX = e.clientX;
+          scope.mouseY = e.clientY;
 
           var centerX = w/2,
             centerY = h/2;
@@ -119,6 +124,10 @@ angular.module('portfolioApp.directives', [])
           scope.bgY = newY;
           scope.$apply();
         })
+
+
+
+
       }
     }
 })
@@ -132,7 +141,7 @@ angular.module('portfolioApp.directives', [])
             e.preventDefault();
             e.stopPropagation();
 
-            var template = '<bullet class="bullet-outer" style="left:' + (scope.mouseX + 35) + 'px;"></bullet>',
+            var template = '<bullet class="bullet-outer" style="left:' + (scope.mouseX + 35) + 'px;" data-left="' + (scope.mouseX + 35) + '"></bullet>',
             ship = $document.find(element);
             ship.before($compile(template)(scope));
           }
@@ -148,26 +157,37 @@ angular.module('portfolioApp.directives', [])
       scope: { top: '@', cls: '@' },
       template: '<span class="bullet {{cls}}" style="top:-{{top}}px;"></span>',
       link: function(scope, element, attrs){
-        var midpoint = window.innerHeight*0.41;//window.innerHeight/2 - 75;
+        var wHeight = window.innerHeight, 
+          midpoint = wHeight*0.41,
+          h1 = $('.main-heading'),
+          h1Pos = h1.offset(),
+          h1Left = h1Pos.left,
+          h1Right = h1Pos.left + h1.width();
         scope.top = 0;
 
         var thisInterval = $interval(function(){
 
-          if (midpoint>scope.top) {
-            scope.top += 50;
+          if (midpoint<scope.top) {
+            
+            if ((attrs.left < h1Right) && (attrs.left > h1Left)) {
+              scope.cls = "explode";
+
+              $interval.cancel(thisInterval);
+
+              // Create the event
+              var event = new CustomEvent("explode", { 'detail': { x: attrs.left } });
+              // Fire the event
+              document.dispatchEvent(event);
+            } else {
+              scope.top += 50;  
+            }
           } else {
-            scope.cls = "explode";
-
-            $interval.cancel(thisInterval);
-
-            // Create the event
-            var event = new CustomEvent("explode", { 'detail': { x: scope.$parent.mouseX } });
-            // Fire the event
-            document.dispatchEvent(event);
-
-
-
+            scope.top += 50;
           };
+
+          if (scope.top > wHeight) {
+            $interval.cancel(thisInterval);
+          }
 
         }, 90)
 

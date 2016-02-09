@@ -6988,8 +6988,31 @@ body {
 }
 
 /* line 27, base/structure.scss */
-.hero {
+.hero,
+.spacer {
   height: 100vh;
+}
+
+/* line 32, base/structure.scss */
+.fixed {
+  position: fixed;
+  width: 100%;
+}
+/* line 36, base/structure.scss */
+.fixed .container {
+  background-color: rgba(0, 73, 148, 0.05);
+}
+
+/* line 41, base/structure.scss */
+.something {
+  background-color: #000;
+  position: relative;
+  background-color: #000;
+  /*.something-inner {
+    left: 0px;
+    position: fixed;
+    top: 5%;
+  }*/
 }
 
 /* line 5, base/typography.scss */
@@ -7069,6 +7092,7 @@ body {
 /* line 9, base/sections.scss */
 main {
   background: url(../images/bg.png);
+  background-attachment: fixed;
 }
 
 /* line 7, modules/responsive-embed.scss */
@@ -7120,12 +7144,19 @@ main {
 /* line 5, modules/invader.scss */
 ship {
   bottom: 0px;
+  display: none;
   left: 50%;
   margin-left: -35px;
   position: absolute;
   text-align: center;
 }
-/* line 14, modules/invader.scss */
+@media (min-width: 768px) {
+  /* line 5, modules/invader.scss */
+  ship {
+    display: block;
+  }
+}
+/* line 19, modules/invader.scss */
 ship .barrel {
   background-color: #583B3B;
   display: block;
@@ -7135,7 +7166,7 @@ ship .barrel {
   width: 5px;
   z-index: 4;
 }
-/* line 24, modules/invader.scss */
+/* line 29, modules/invader.scss */
 ship .turret {
   background-color: #583B3B;
   display: block;
@@ -7145,7 +7176,7 @@ ship .turret {
   width: 15px;
   z-index: 3;
 }
-/* line 34, modules/invader.scss */
+/* line 39, modules/invader.scss */
 ship .body {
   background-color: #583B3B;
   display: block;
@@ -7155,7 +7186,7 @@ ship .body {
   width: 60px;
   z-index: 2;
 }
-/* line 44, modules/invader.scss */
+/* line 49, modules/invader.scss */
 ship .body-main {
   background-color: #583B3B;
   display: block;
@@ -7166,14 +7197,14 @@ ship .body-main {
   z-index: 1;
 }
 
-/* line 55, modules/invader.scss */
+/* line 60, modules/invader.scss */
 .bullet-outer {
   height: 7px;
   bottom: 40px;
   position: absolute;
   width: 3px;
 }
-/* line 61, modules/invader.scss */
+/* line 66, modules/invader.scss */
 .bullet-outer .bullet {
   background-color: red;
   border: solid 1px red;
@@ -7188,12 +7219,12 @@ ship .body-main {
   -o-transition: top 0.09s;
   transition: top 0.09s;
 }
-/* line 74, modules/invader.scss */
+/* line 79, modules/invader.scss */
 .bullet-outer .bullet.explode {
   background-color: transparent;
   border: solid 1px transparent;
 }
-/* line 78, modules/invader.scss */
+/* line 83, modules/invader.scss */
 .bullet-outer .bullet.explode:before {
   border: solid 1px red;
   border-radius: 100%;

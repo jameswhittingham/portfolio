@@ -24,6 +24,40 @@ body {
   }
 }
 
-.hero {
+.hero,
+.spacer {
   height:100vh;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+
+  .container {
+    background-color: rgba(0, 73, 148, 0.05);
+  }
+}
+
+.something {
+  background-color: #000;
+  position: relative;
+
+  //&:before {
+    background-color: #000;
+    //content: "";
+    //left: 0;
+    //padding-top: 200%;
+    //position: absolute;
+    //top: 0px;
+    //transform-origin: left top;
+    //width: 200%;
+
+    //@include rotate(45deg);
+  //}
+
+  /*.something-inner {
+    left: 0px;
+    position: fixed;
+    top: 5%;
+  }*/
 }

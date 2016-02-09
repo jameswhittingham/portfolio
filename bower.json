@@ -1,10 +1,11 @@
 {
-  "name": "James App",
+  "name": "JamesApp",
   "version": "0.0.0",
   "dependencies": {
     "angular": "^1.4.0",
     "bootstrap-sass-official": "^3.2.0",
     "angular-route": "^1.4.0",
+    "scrollmagic": "^2.0.5"
   },
   "appPath": "app",
   "moduleName": "jamesApp"

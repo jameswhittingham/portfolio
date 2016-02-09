@@ -1,27 +1,45 @@
 
-<main class="main-main" ng-mousemove="getPosition($event)" ng-keydown="alert('james')" tabindex="0">
-  <div class="container">
-    <div class="col-xs-12 hero">
-      <div class="vertical-center-wrapper">
-        <div class="vertical-center-row">
-          <div class="vertical-center-cell">
-            <h2>imaginary</h2>
-            <h1 fuck-with-text style="text-shadow: {{bgX/10}}px {{bgY/10}}px 10px rgba(0, 0, 0, 0.5);">james</h1>
+<main class="main-main scene100" tabindex="0">
+
+  <div class="container-fluid fixed">
+    <div class="container">
+      <div class="col-xs-12 hero">
+        <div class="vertical-center-wrapper">
+          <div class="vertical-center-row">
+            <div class="vertical-center-cell">
+              <h2>imaginary</h2>
+              <h1 fuck-with-text style="text-shadow: {{bgX/10}}px {{bgY/10}}px 10px rgba(0, 0, 0, 0.5);" class="main-heading">james</h1>
+            </div>
           </div>
         </div>
       </div>
+      <ship class="ship" style="left:{{ mouseX }}px;">
+        <span class="barrel" style="box-shadow: {{bgX/40}}px {{getPositive(bgY)/60}}px 10px rgba(0, 0, 0, 0.5);"></span>
+        <span class="turret" style="box-shadow: {{bgX/40}}px {{getPositive(bgY)/60}}px 10px rgba(0, 0, 0, 0.5);"></span>
+        <span class="body" style="box-shadow: {{bgX/40}}px {{getPositive(bgY)/60}}px 10px rgba(0, 0, 0, 0.5);"></span>
+        <span class="body-main" style="box-shadow: {{bgX/40}}px {{getPositive(bgY)/60}}px 10px rgba(0, 0, 0, 0.5);"></span>
+      </ship>
     </div>
-    <ship class="ship" style="left:{{ mouseX }}px;">
-      <span class="barrel" style="box-shadow: {{bgX/40}}px {{getPositive(bgY)/60}}px 10px rgba(0, 0, 0, 0.5);"></span>
-      <span class="turret" style="box-shadow: {{bgX/40}}px {{getPositive(bgY)/60}}px 10px rgba(0, 0, 0, 0.5);"></span>
-      <span class="body" style="box-shadow: {{bgX/40}}px {{getPositive(bgY)/60}}px 10px rgba(0, 0, 0, 0.5);"></span>
-      <span class="body-main" style="box-shadow: {{bgX/40}}px {{getPositive(bgY)/60}}px 10px rgba(0, 0, 0, 0.5);"></span>
-    </ship>
+  </div>
+  
+  <div class="spacer"></div>
+
+  <div class="something scene100 active">
+    <div class="something-inner">
+      
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dicta pariatur vel quidem eum, voluptate corporis, sit optio repellat debitis autem explicabo aliquid cupiditate eaque ea alias quos rerum!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dicta pariatur vel quidem eum, voluptate corporis, sit optio repellat debitis autem explicabo aliquid cupiditate eaque ea alias quos rerum!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dicta pariatur vel quidem eum, voluptate corporis, sit optio repellat debitis autem explicabo aliquid cupiditate eaque ea alias quos rerum!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dicta pariatur vel quidem eum, voluptate corporis, sit optio repellat debitis autem explicabo aliquid cupiditate eaque ea alias quos rerum!</p>
+    </div>
   </div>
 
 
-<!--
-  <div class="container">
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+
+
+  <!--<div class="container">
     <div class="col-md-12 stage">
       <div class="stage-inner">
         <div class="hand"></div>
@@ -34,8 +52,7 @@
         </rotate>
       </div>
     </div>
-  </div>
--->
+  </div>-->
 
   
 </main>
