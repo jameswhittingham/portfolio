@@ -6883,6 +6883,28 @@ button.close {
     display: none;
   }
 }
+@keyframes sway {
+  0% {
+    margin-left: 0%;
+  }
+  50% {
+    margin-left: -2.5%;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
+@keyframes mousedown {
+  0% {
+    top: 5px;
+  }
+  80% {
+    top: 10px;
+  }
+  100% {
+    top: 5px;
+  }
+}
 /*
 @font-face {
 	font-family: 'icomoon';
@@ -6997,10 +7019,6 @@ body {
 .fixed {
   position: fixed;
   width: 100%;
-}
-/* line 36, base/structure.scss */
-.fixed .container {
-  background-color: rgba(0, 73, 148, 0.05);
 }
 
 /* line 41, base/structure.scss */
@@ -7235,6 +7253,234 @@ ship .body-main {
   -webkit-animation: explode 0.3s forwards;
   -o-animation: explode 0.3s forwards;
   animation: explode 0.3s forwards;
+}
+
+/* line 5, modules/bars.scss */
+.bars {
+  background-color: #171118;
+  border: solid 20px #171118;
+  height: 100vh;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+/* line 15, modules/bars.scss */
+.bars span {
+  display: block;
+  height: 10vh;
+  position: relative;
+  width: 100%;
+}
+/* line 21, modules/bars.scss */
+.bars span:before, .bars span:after {
+  border: solid 150px;
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+/* line 32, modules/bars.scss */
+.bars span:before {
+  border-top: 0;
+  left: 0px;
+  -webkit-animation: sway 5s infinite;
+  -o-animation: sway 5s infinite;
+  animation: sway 5s infinite;
+}
+/* line 39, modules/bars.scss */
+.bars span:after {
+  border-bottom: 0;
+  right: 0px;
+  -webkit-animation: sway 5s infinite;
+  -o-animation: sway 5s infinite;
+  animation: sway 5s infinite;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+/* line 48, modules/bars.scss */
+.bars span:first-child:before {
+  border-color: transparent transparent #fffed8 #fffed8;
+  left: -90%;
+}
+/* line 53, modules/bars.scss */
+.bars span:first-child:after {
+  border-color: #fffed8 #fffed8 transparent transparent;
+  left: 5%;
+}
+/* line 60, modules/bars.scss */
+.bars span:nth-child(2):before {
+  border-color: transparent transparent #fed5a1 #fed5a1;
+  left: -80%;
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+/* line 67, modules/bars.scss */
+.bars span:nth-child(2):after {
+  border-color: #fed5a1 #fed5a1 transparent transparent;
+  left: 15%;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+/* line 76, modules/bars.scss */
+.bars span:nth-child(3):before {
+  border-color: transparent transparent #f99533 #f99533;
+  left: -70%;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+/* line 83, modules/bars.scss */
+.bars span:nth-child(3):after {
+  border-color: #f99533 #f99533 transparent transparent;
+  left: 25%;
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+/* line 92, modules/bars.scss */
+.bars span:nth-child(4):before {
+  border-color: transparent transparent #f18233 #f18233;
+  left: -60%;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+/* line 99, modules/bars.scss */
+.bars span:nth-child(4):after {
+  border-color: #f18233 #f18233 transparent transparent;
+  left: 35%;
+  -webkit-animation-delay: 1.1s;
+  animation-delay: 1.1s;
+}
+/* line 108, modules/bars.scss */
+.bars span:nth-child(5):before {
+  border-color: transparent transparent #df6d31 #df6d31;
+  left: -50%;
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+/* line 115, modules/bars.scss */
+.bars span:nth-child(5):after {
+  border-color: #df6d31 #df6d31 transparent transparent;
+  left: 45%;
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+/* line 124, modules/bars.scss */
+.bars span:nth-child(6):before {
+  border-color: transparent transparent #d65f34 #d65f34;
+  left: -40%;
+  -webkit-animation-delay: 1.3s;
+  animation-delay: 1.3s;
+}
+/* line 131, modules/bars.scss */
+.bars span:nth-child(6):after {
+  border-color: #d65f34 #d65f34 transparent transparent;
+  left: 55%;
+  -webkit-animation-delay: 1.4s;
+  animation-delay: 1.4s;
+}
+/* line 139, modules/bars.scss */
+.bars span:nth-child(7) {
+  z-index: 2;
+}
+/* line 142, modules/bars.scss */
+.bars span:nth-child(7):before {
+  border-color: transparent transparent #ab4134 #ab4134;
+  left: -30%;
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+/* line 149, modules/bars.scss */
+.bars span:nth-child(7):after {
+  border-color: #ab4134 #ab4134 transparent transparent;
+  left: 65%;
+  -webkit-animation-delay: 1.6s;
+  animation-delay: 1.6s;
+}
+/* line 157, modules/bars.scss */
+.bars span:nth-child(8) {
+  z-index: 2;
+}
+/* line 160, modules/bars.scss */
+.bars span:nth-child(8):before {
+  border-color: transparent transparent #7B2F25 #7B2F25;
+  left: -20%;
+  -webkit-animation-delay: 1.7s;
+  animation-delay: 1.7s;
+}
+/* line 167, modules/bars.scss */
+.bars span:nth-child(8):after {
+  border-color: #7B2F25 #7B2F25 transparent transparent;
+  left: 75%;
+  -webkit-animation-delay: 1.8s;
+  animation-delay: 1.8s;
+}
+/* line 175, modules/bars.scss */
+.bars span:nth-child(9) {
+  z-index: 2;
+}
+/* line 178, modules/bars.scss */
+.bars span:nth-child(9):before {
+  border-color: transparent transparent #5F160C #5F160C;
+  left: -10%;
+  -webkit-animation-delay: 1.9s;
+  animation-delay: 1.9s;
+}
+/* line 185, modules/bars.scss */
+.bars span:nth-child(9):after {
+  border-color: #5F160C #5F160C transparent transparent;
+  left: 85%;
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+/* line 193, modules/bars.scss */
+.bars span:nth-child(10) {
+  z-index: 2;
+}
+/* line 196, modules/bars.scss */
+.bars span:nth-child(10):before {
+  border-color: transparent transparent #380700 #380700;
+  left: -0%;
+  -webkit-animation-delay: 2.1s;
+  animation-delay: 2.1s;
+}
+/* line 203, modules/bars.scss */
+.bars span:nth-child(10):after {
+  border-color: #380700 #380700 transparent transparent;
+  left: 95%;
+  -webkit-animation-delay: 2.2s;
+  animation-delay: 2.2s;
+}
+
+/* line 5, modules/mouse.scss */
+.mouse {
+  border: solid 1px #fff;
+  border-radius: 13px;
+  bottom: 20px;
+  height: 45px;
+  left: 50%;
+  margin-left: -15px;
+  position: absolute;
+  width: 30px;
+  z-index: 9999;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+/* line 18, modules/mouse.scss */
+.mouse:before {
+  background-color: #fff;
+  border-radius: 100%;
+  content: "";
+  height: 6px;
+  left: 50%;
+  margin-left: -3px;
+  position: absolute;
+  top: 5px;
+  width: 6px;
+  -webkit-animation: mousedown 2s infinite;
+  -o-animation: mousedown 2s infinite;
+  animation: mousedown 2s infinite;
 }
 
 /*# sourceMappingURL=main.css.map */

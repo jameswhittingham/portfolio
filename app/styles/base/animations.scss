@@ -33,3 +33,27 @@
     	display: none;
     }
 }
+
+@keyframes sway {
+    0% {
+        margin-left: 0%;
+    }
+    50% {
+        margin-left: -2.5%;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@keyframes mousedown {
+    0% {
+        top: 5px;
+    }
+    80% {
+        top: 10px;
+    }
+    100% {
+        top: 5px;
+    }
+}
