@@ -10,3 +10,15 @@ main {
 	background: url(../images/bg.png);
 	background-attachment: fixed;
 }
+
+.hero {
+	color: $body-bg;
+	
+	@include opacity(0);
+    @include transition(all 0.5s);
+    @include transition-delay(1.8s);
+
+    .loaded & {
+		@include opacity(1);
+	}
+}

@@ -1,0 +1,58 @@
+//
+// Ooze
+// --------------------------------------------------
+
+
+.ooze-container {
+	border-top: solid 20px $background-primary;
+	margin-top: -20px;
+	position: relative;
+	z-index: 2;
+
+	.col-md-1 {
+		padding: 0;
+	}
+
+	.ooze {
+		background-color: $background-primary;
+		min-height: 85px; 
+		width: 100%;
+
+		&.stay {
+			background-color: transparent;
+			min-height: 0;
+			padding: 50% 50% 0;
+		}
+
+		.top {
+		    height: 100%;
+		    left: 0;
+		    overflow: hidden;
+		    position: absolute;
+		    top: 0;
+		    width: 100%;
+		    z-index: 1;
+		    
+			span {
+				border: solid 200px $background-primary;
+			    border-radius: 100%;
+			    display: block;
+			    margin: -200px 0 0 -200px;
+			    padding: 50%;
+			    position: absolute;
+			    width: 200% !important;
+			}
+		}
+
+		.end {
+			background-color: $background-primary;
+		    border-radius: 100%;
+		    bottom: 0;
+		    display: block;
+		    left: 0;
+		    margin-bottom: -50%;
+		    padding: 50%;
+		    position: absolute;
+		}
+	}
+}

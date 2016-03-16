@@ -49,7 +49,7 @@ angular.module('portfolioApp.directives', [])
 
       $timeout(function(){
         triggerSpin();
-      }, key*200)
+      }, key*200+2000)
 
       element.on('mouseover', triggerSpin);
 
@@ -143,6 +143,7 @@ angular.module('portfolioApp.directives', [])
 
             var template = '<bullet class="bullet-outer" style="left:' + (scope.mouseX + 35) + 'px;" data-left="' + (scope.mouseX + 35) + '"></bullet>',
             ship = $document.find(element);
+            ship.addClass('triggered');
             ship.before($compile(template)(scope));
           }
         })

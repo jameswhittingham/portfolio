@@ -10,6 +10,10 @@
 angular.module('portfolioApp')
 .controller('MainCtrl', function ($scope, fileService, $interval, $compile, $document) {
 
+  $scope.$on('$viewContentLoaded', function(){
+    $('body').addClass('loaded')
+  });
+
   fileService.getFile('scripts/data/skills.js').then(function(data){
     $scope.skills = data.skills;
     //$scope.triggerTimer(data.skills.length);
@@ -69,7 +73,7 @@ angular.module('portfolioApp')
     .addTo(controller);*/
 
 
-    // build scene
+    // Is '.active' when in view
     var scene1 = new ScrollMagic.Scene({
       triggerElement: ".scene100",
       duration: "100%",
@@ -77,6 +81,26 @@ angular.module('portfolioApp')
     })
     .setClassToggle(".scene100", "active")
     .addTo(controller);
+
+    // Is '.active' when in 50% from top
+    var scene2 = new ScrollMagic.Scene({
+      triggerElement: ".scene50",
+      duration: "1000%",
+      offset: $win.height()
+    })
+    .setClassToggle(".scene50", "show-stuff")
+    .addTo(controller);
+
+    // Is '.active' when scrolled 25%
+    var scene3 = new ScrollMagic.Scene({
+      triggerElement: ".bottom25",
+      duration: "100%",
+      offset: -$win.height()/4
+    })
+    .setClassToggle(".bottom25", "active")
+    .addTo(controller);
+
+
 
   }
   initParallax()
