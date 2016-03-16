@@ -7823,7 +7823,7 @@ ship.triggered .instructions {
   z-index: 2;
 }
 /* line 12, modules/ooze.scss */
-.ooze-container .col-md-1 {
+.ooze-container .col-xs-1 {
   padding: 0;
 }
 /* line 16, modules/ooze.scss */
