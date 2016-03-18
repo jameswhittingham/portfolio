@@ -2,15 +2,69 @@
 // Ooze
 // --------------------------------------------------
 
-
 .ooze-container {
-	border-top: solid 20px $background-primary;
-	margin-top: -20px;
 	position: relative;
 	z-index: 2;
 
-	.col-xs-1 {
+	.col-xs-1,
+	.col-xs-1-5 {
 		padding: 0;
+	}
+
+	.col-xs-1-5 {
+		float: left;
+		position: relative;
+		width: (100%/9);
+	}
+
+	.row {
+		border-top: solid 40px $background-primary;
+	}
+
+	.background,
+	.background-1 {
+		position: absolute;
+		top: 0;
+	}
+
+	.background {
+		left: 8%;
+		width: 85%;
+		z-index: -1;
+
+		.ooze {
+			background-color: $background-primary-variant;
+
+			.top {
+				span {
+					border: solid 200px $background-primary-variant;
+				}
+			}
+			
+			.end {
+				background-color: $background-primary-variant;
+			}
+		}
+	}
+
+	.background-1 {
+		right: -2%;
+		width: 98%;
+		z-index: -2;
+
+		.ooze {
+			background-color: #000;
+
+			.top {
+				span {
+					border: solid 200px #000;
+				}
+			}
+			
+			.end {
+				background-color: #000;
+			}
+		}
 	}
 
 	.ooze {

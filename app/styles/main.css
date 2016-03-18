@@ -7014,14 +7014,31 @@ body {
 .spacer {
   height: 100vh;
 }
+/* line 31, base/structure.scss */
+.hero.dark,
+.spacer.dark {
+  background-color: #000;
+  position: relative;
+  z-index: 9;
+}
+/* line 37, base/structure.scss */
+.hero.half,
+.spacer.half {
+  height: 50vh;
+}
+/* line 41, base/structure.scss */
+.hero.threequarters,
+.spacer.threequarters {
+  height: 75vh;
+}
 
-/* line 32, base/structure.scss */
+/* line 46, base/structure.scss */
 .fixed {
   position: fixed;
   width: 100%;
 }
 
-/* line 41, base/structure.scss */
+/* line 55, base/structure.scss */
 .something {
   background-color: #000;
   position: relative;
@@ -7078,6 +7095,18 @@ h2 {
     font-size: 2vmin;
   }
 }
+/* line 42, base/typography.scss */
+.show-stuff h2 {
+  display: none;
+}
+/* line 46, base/typography.scss */
+h2.second {
+  display: none;
+}
+/* line 49, base/typography.scss */
+.show-stuff h2.second {
+  display: inline-block;
+}
 
 /* line 5, base/vertical-center.scss */
 .vertical-center-wrapper {
@@ -7099,7 +7128,6 @@ h2 {
 .vertical-center-wrapper .vertical-center-cell {
   display: table-cell;
   vertical-align: middle;
-  overflow-y: auto;
 }
 
 /* line 5, base/sections.scss */
@@ -7128,6 +7156,18 @@ main {
 .loaded .hero {
   opacity: 1;
   filter: alpha(opacity=100);
+}
+
+/* line 5, modules/header.scss */
+.hero-container1 {
+  padding-top: 69%;
+  position: absolute;
+  width: 100%;
+}
+/* line 10, modules/header.scss */
+.hero-fixed .hero-container1 {
+  padding-top: 0;
+  position: fixed;
 }
 
 /* line 7, modules/responsive-embed.scss */
@@ -7306,7 +7346,6 @@ ship.triggered .instructions {
 /* line 5, modules/bars.scss */
 .bars {
   background-color: #091621;
-  border: solid 20px #091621;
   height: 100vh;
   left: 0;
   overflow: hidden;
@@ -7314,9 +7353,11 @@ ship.triggered .instructions {
   top: 0;
   width: 100%;
 }
-/* line 17, modules/bars.scss */
-.loaded .bars.active span {
-  margin-left: 0 !important;
+/* line 16, modules/bars.scss */
+.bars.active span {
+  /*.loaded & {
+  	margin-left: 0 !important;
+  }*/
 }
 /* line 21, modules/bars.scss */
 .bars.active span:before {
@@ -7334,212 +7375,20 @@ ship.triggered .instructions {
 }
 /* line 32, modules/bars.scss */
 .bars span {
+  bottom: 0px;
   display: block;
   height: 10vh;
-  position: relative;
+  position: absolute;
   width: 100%;
   -webkit-transition: all 0.8s;
   -o-transition: all 0.8s;
   transition: all 0.8s;
-  		/*&:first-child {
-  			margin-left: -100%;
-  
-  			&:before {
-      			border-color: transparent transparent $color-1 $color-1;
-      			left: -90%;
-      		}
-  
-      		&:after {
-      			border-color: $color-1 $color-1 transparent transparent;
-      			left: 5%;
-      		}
-  		}
-  
-  		&:nth-child(2) {
-  			margin-left: -110%;
-  
-  			@include transition-delay(0.1s);
-  
-  			&:before {
-  				border-color: transparent transparent $color-2 $color-2;
-  				left: -80%;
-  
-  				@include animation-delay(0.6s);
-  			}
-  
-  			&:after {
-      			border-color: $color-2 $color-2 transparent transparent;
-      			left: 15%;
-  
-      			@include animation-delay(0.7s);
-      		}
-  		}
-  
-  		&:nth-child(3) {
-  			margin-left: -120%;
-  
-  			@include transition-delay(0.2s);
-  
-  			&:before {
-  				border-color: transparent transparent $color-3 $color-3;
-  				left: -70%;
-  
-  				@include animation-delay(0.8s);
-  			}
-  
-  			&:after {
-      			border-color: $color-3 $color-3 transparent transparent;
-      			left: 25%;
-  
-      			@include animation-delay(0.9s);
-      		}
-  		}
-  
-  		&:nth-child(4) {
-  			margin-left: -130%;
-  
-  			@include transition-delay(0.3s);
-  
-  			&:before {
-  				border-color: transparent transparent $color-4 $color-4;
-  				left: -60%;
-  
-  				@include animation-delay(1s);
-  			}
-  
-  			&:after {
-      			border-color: $color-4 $color-4 transparent transparent;
-      			left: 35%;
-  
-      			@include animation-delay(1.1s);
-      		}
-  		}
-  
-  		&:nth-child(5) {
-  			margin-left: -140%;
-  
-  			@include transition-delay(0.4s);
-  
-  			&:before {
-  				border-color: transparent transparent $color-5 $color-5;
-  				left: -50%;
-  
-  				@include animation-delay(1.2s);
-  			}
-  
-  			&:after {
-      			border-color: $color-5 $color-5 transparent transparent;
-      			left: 45%;
-  
-      			@include animation-delay(1.2s);
-      		}
-  		}
-  
-  		&:nth-child(6) {
-  			margin-left: -150%;
-  
-  			@include transition-delay(0.5s);
-  
-  			&:before {
-  				border-color: transparent transparent $color-6 $color-6;
-  				left: -40%;
-  
-  				@include animation-delay(1.3s);
-  			}
-  
-  			&:after {
-      			border-color: $color-6 $color-6 transparent transparent;
-      			left: 55%;
-  
-      			@include animation-delay(1.4s);
-      		}
-  		}
-  
-  		&:nth-child(7) {
-  			margin-left: -160%;
-  			z-index: 2;
-  
-  			@include transition-delay(0.6s);
-  
-  			&:before {
-  				border-color: transparent transparent $color-7 $color-7;
-  				left: -30%;
-  
-  				@include animation-delay(1.5s);
-  			}
-  
-  			&:after {
-      			border-color: $color-7 $color-7 transparent transparent;
-      			left: 65%;
-  
-      			@include animation-delay(1.6s);
-      		}	
-  		}
-  
-  		&:nth-child(8) {
-  			margin-left: -170%;
-  			z-index: 2;
-  
-  			@include transition-delay(0.7s);
-  
-  			&:before {
-  				border-color: transparent transparent $color-8 $color-8;
-  				left: -20%;
-  
-  				@include animation-delay(1.7s);
-  			}
-  
-  			&:after {
-      			border-color: $color-8 $color-8 transparent transparent;
-      			left: 75%;
-  
-      			@include animation-delay(1.8s);
-      		}
-  		}
-  
-  		&:nth-child(9) {
-  			margin-left: -180%;
-  			z-index: 2;
-  
-  			@include transition-delay(0.8s);
-  
-  			&:before {
-  				border-color: transparent transparent $color-9 $color-9;
-  				left: -10%;
-  
-  				@include animation-delay(1.9s);
-  			}
-  
-  			&:after {
-      			border-color: $color-9 $color-9 transparent transparent;
-      			left: 85%;
-  
-      			@include animation-delay(2s);
-      		}	
-  		}
-  
-  		&:nth-child(10) {
-  			margin-left: -190%;
-  			z-index: 2;
-  
-  			@include transition-delay(0.9s);
-  
-  			&:before {
-  				border-color: transparent transparent $color-10 $color-10;
-  				left: -0%;
-  
-  				@include animation-delay(2.1s);
-  			}
-  
-  			&:after {
-      			border-color: $color-10 $color-10 transparent transparent;
-      			left: 95%;
-  
-      			@include animation-delay(2.2s);
-      		}
-  		}*/
 }
-/* line 40, modules/bars.scss */
+/* line 41, modules/bars.scss */
+.bars span.fix-it {
+  position: fixed;
+}
+/* line 45, modules/bars.scss */
 .bars span:before, .bars span:after {
   border: solid 150px;
   content: "";
@@ -7548,214 +7397,314 @@ ship.triggered .instructions {
   top: 0;
   width: 100%;
 }
-/* line 50, modules/bars.scss */
+/* line 55, modules/bars.scss */
 .bars span:before {
   border-top: 0;
   left: 0px;
 }
-/* line 55, modules/bars.scss */
+/* line 60, modules/bars.scss */
 .bars span:after {
   border-bottom: 0;
   right: 0px;
 }
-/* line 63, modules/bars.scss */
+/* line 68, modules/bars.scss */
 .bars span:nth-child(1) {
+  bottom: 360px;
   margin-left: -110%;
   -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
-/* line 69, modules/bars.scss */
+/* line 75, modules/bars.scss */
+.loaded .bars span:nth-child(1) {
+  margin-left: 0 !important;
+}
+/* line 80, modules/bars.scss */
+.bars span:nth-child(1).fix-it {
+  bottom: auto;
+  top: 0%;
+}
+/* line 85, modules/bars.scss */
 .bars span:nth-child(1):before {
   border-color: transparent transparent #fffed8 #fffed8;
   left: -90%;
   -webkit-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
-/* line 76, modules/bars.scss */
+/* line 92, modules/bars.scss */
 .bars span:nth-child(1):after {
   border-color: #fffed8 #fffed8 transparent transparent;
   left: 5%;
   -webkit-animation-delay: 0.7s;
   animation-delay: 0.7s;
 }
-/* line 63, modules/bars.scss */
+/* line 68, modules/bars.scss */
 .bars span:nth-child(2) {
+  bottom: 320px;
   margin-left: -120%;
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s;
 }
-/* line 69, modules/bars.scss */
+/* line 75, modules/bars.scss */
+.loaded .bars span:nth-child(2) {
+  margin-left: 0 !important;
+}
+/* line 80, modules/bars.scss */
+.bars span:nth-child(2).fix-it {
+  bottom: auto;
+  top: 10%;
+}
+/* line 85, modules/bars.scss */
 .bars span:nth-child(2):before {
   border-color: transparent transparent #fed5a1 #fed5a1;
   left: -80%;
   -webkit-animation-delay: 0.7s;
   animation-delay: 0.7s;
 }
-/* line 76, modules/bars.scss */
+/* line 92, modules/bars.scss */
 .bars span:nth-child(2):after {
   border-color: #fed5a1 #fed5a1 transparent transparent;
   left: 15%;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
-/* line 63, modules/bars.scss */
+/* line 68, modules/bars.scss */
 .bars span:nth-child(3) {
+  bottom: 280px;
   margin-left: -130%;
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
 }
-/* line 69, modules/bars.scss */
+/* line 75, modules/bars.scss */
+.loaded .bars span:nth-child(3) {
+  margin-left: 0 !important;
+}
+/* line 80, modules/bars.scss */
+.bars span:nth-child(3).fix-it {
+  bottom: auto;
+  top: 20%;
+}
+/* line 85, modules/bars.scss */
 .bars span:nth-child(3):before {
   border-color: transparent transparent #f99533 #f99533;
   left: -70%;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
-/* line 76, modules/bars.scss */
+/* line 92, modules/bars.scss */
 .bars span:nth-child(3):after {
   border-color: #f99533 #f99533 transparent transparent;
   left: 25%;
   -webkit-animation-delay: 0.9s;
   animation-delay: 0.9s;
 }
-/* line 63, modules/bars.scss */
+/* line 68, modules/bars.scss */
 .bars span:nth-child(4) {
+  bottom: 240px;
   margin-left: -140%;
   -webkit-transition-delay: 0.4s;
   transition-delay: 0.4s;
 }
-/* line 69, modules/bars.scss */
+/* line 75, modules/bars.scss */
+.loaded .bars span:nth-child(4) {
+  margin-left: 0 !important;
+}
+/* line 80, modules/bars.scss */
+.bars span:nth-child(4).fix-it {
+  bottom: auto;
+  top: 30%;
+}
+/* line 85, modules/bars.scss */
 .bars span:nth-child(4):before {
   border-color: transparent transparent #f18233 #f18233;
   left: -60%;
   -webkit-animation-delay: 0.9s;
   animation-delay: 0.9s;
 }
-/* line 76, modules/bars.scss */
+/* line 92, modules/bars.scss */
 .bars span:nth-child(4):after {
   border-color: #f18233 #f18233 transparent transparent;
   left: 35%;
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
 }
-/* line 63, modules/bars.scss */
+/* line 68, modules/bars.scss */
 .bars span:nth-child(5) {
+  bottom: 200px;
   margin-left: -150%;
   -webkit-transition-delay: 0.5s;
   transition-delay: 0.5s;
 }
-/* line 69, modules/bars.scss */
+/* line 75, modules/bars.scss */
+.loaded .bars span:nth-child(5) {
+  margin-left: 0 !important;
+}
+/* line 80, modules/bars.scss */
+.bars span:nth-child(5).fix-it {
+  bottom: auto;
+  top: 40%;
+}
+/* line 85, modules/bars.scss */
 .bars span:nth-child(5):before {
   border-color: transparent transparent #df6d31 #df6d31;
   left: -50%;
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
 }
-/* line 76, modules/bars.scss */
+/* line 92, modules/bars.scss */
 .bars span:nth-child(5):after {
   border-color: #df6d31 #df6d31 transparent transparent;
   left: 45%;
   -webkit-animation-delay: 1.1s;
   animation-delay: 1.1s;
 }
-/* line 63, modules/bars.scss */
+/* line 68, modules/bars.scss */
 .bars span:nth-child(6) {
+  bottom: 160px;
   margin-left: -160%;
   -webkit-transition-delay: 0.6s;
   transition-delay: 0.6s;
 }
-/* line 69, modules/bars.scss */
+/* line 75, modules/bars.scss */
+.loaded .bars span:nth-child(6) {
+  margin-left: 0 !important;
+}
+/* line 80, modules/bars.scss */
+.bars span:nth-child(6).fix-it {
+  bottom: auto;
+  top: 50%;
+}
+/* line 85, modules/bars.scss */
 .bars span:nth-child(6):before {
   border-color: transparent transparent #d65f34 #d65f34;
   left: -40%;
   -webkit-animation-delay: 1.1s;
   animation-delay: 1.1s;
 }
-/* line 76, modules/bars.scss */
+/* line 92, modules/bars.scss */
 .bars span:nth-child(6):after {
   border-color: #d65f34 #d65f34 transparent transparent;
   left: 55%;
   -webkit-animation-delay: 1.2s;
   animation-delay: 1.2s;
 }
-/* line 63, modules/bars.scss */
+/* line 68, modules/bars.scss */
 .bars span:nth-child(7) {
+  bottom: 120px;
   margin-left: -170%;
   -webkit-transition-delay: 0.7s;
   transition-delay: 0.7s;
   z-index: 2;
 }
-/* line 69, modules/bars.scss */
+/* line 75, modules/bars.scss */
+.loaded .bars span:nth-child(7) {
+  margin-left: 0 !important;
+}
+/* line 80, modules/bars.scss */
+.bars span:nth-child(7).fix-it {
+  bottom: auto;
+  top: 60%;
+}
+/* line 85, modules/bars.scss */
 .bars span:nth-child(7):before {
   border-color: transparent transparent #ab4134 #ab4134;
   left: -30%;
   -webkit-animation-delay: 1.2s;
   animation-delay: 1.2s;
 }
-/* line 76, modules/bars.scss */
+/* line 92, modules/bars.scss */
 .bars span:nth-child(7):after {
   border-color: #ab4134 #ab4134 transparent transparent;
   left: 65%;
   -webkit-animation-delay: 1.3s;
   animation-delay: 1.3s;
 }
-/* line 63, modules/bars.scss */
+/* line 68, modules/bars.scss */
 .bars span:nth-child(8) {
+  bottom: 80px;
   margin-left: -180%;
   -webkit-transition-delay: 0.8s;
   transition-delay: 0.8s;
   z-index: 2;
 }
-/* line 69, modules/bars.scss */
+/* line 75, modules/bars.scss */
+.loaded .bars span:nth-child(8) {
+  margin-left: 0 !important;
+}
+/* line 80, modules/bars.scss */
+.bars span:nth-child(8).fix-it {
+  bottom: auto;
+  top: 70%;
+}
+/* line 85, modules/bars.scss */
 .bars span:nth-child(8):before {
   border-color: transparent transparent #7B2F25 #7B2F25;
   left: -20%;
   -webkit-animation-delay: 1.3s;
   animation-delay: 1.3s;
 }
-/* line 76, modules/bars.scss */
+/* line 92, modules/bars.scss */
 .bars span:nth-child(8):after {
   border-color: #7B2F25 #7B2F25 transparent transparent;
   left: 75%;
   -webkit-animation-delay: 1.4s;
   animation-delay: 1.4s;
 }
-/* line 63, modules/bars.scss */
+/* line 68, modules/bars.scss */
 .bars span:nth-child(9) {
+  bottom: 40px;
   margin-left: -190%;
   -webkit-transition-delay: 0.9s;
   transition-delay: 0.9s;
   z-index: 2;
 }
-/* line 69, modules/bars.scss */
+/* line 75, modules/bars.scss */
+.loaded .bars span:nth-child(9) {
+  margin-left: 0 !important;
+}
+/* line 80, modules/bars.scss */
+.bars span:nth-child(9).fix-it {
+  bottom: auto;
+  top: 80%;
+}
+/* line 85, modules/bars.scss */
 .bars span:nth-child(9):before {
   border-color: transparent transparent #5F160C #5F160C;
   left: -10%;
   -webkit-animation-delay: 1.4s;
   animation-delay: 1.4s;
 }
-/* line 76, modules/bars.scss */
+/* line 92, modules/bars.scss */
 .bars span:nth-child(9):after {
   border-color: #5F160C #5F160C transparent transparent;
   left: 85%;
   -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
 }
-/* line 63, modules/bars.scss */
+/* line 68, modules/bars.scss */
 .bars span:nth-child(10) {
+  bottom: 0px;
   margin-left: -200%;
   -webkit-transition-delay: 1s;
   transition-delay: 1s;
   z-index: 2;
 }
-/* line 69, modules/bars.scss */
+/* line 75, modules/bars.scss */
+.loaded .bars span:nth-child(10) {
+  margin-left: 0 !important;
+}
+/* line 80, modules/bars.scss */
+.bars span:nth-child(10).fix-it {
+  bottom: auto;
+  top: 90%;
+}
+/* line 85, modules/bars.scss */
 .bars span:nth-child(10):before {
   border-color: transparent transparent #380700 #380700;
   left: 0%;
   -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
 }
-/* line 76, modules/bars.scss */
+/* line 92, modules/bars.scss */
 .bars span:nth-child(10):after {
   border-color: #380700 #380700 transparent transparent;
   left: 95%;
@@ -7815,30 +7764,81 @@ ship.triggered .instructions {
   transition-delay: 0s;
 }
 
-/* line 6, modules/ooze.scss */
+/* line 5, modules/ooze.scss */
 .ooze-container {
-  border-top: solid 20px #091621;
-  margin-top: -20px;
   position: relative;
   z-index: 2;
 }
-/* line 12, modules/ooze.scss */
-.ooze-container .col-xs-1 {
+/* line 9, modules/ooze.scss */
+.ooze-container .col-xs-1,
+.ooze-container .col-xs-1-5 {
   padding: 0;
 }
-/* line 16, modules/ooze.scss */
+/* line 14, modules/ooze.scss */
+.ooze-container .col-xs-1-5 {
+  float: left;
+  position: relative;
+  width: 11.11111%;
+}
+/* line 20, modules/ooze.scss */
+.ooze-container .row {
+  border-top: solid 40px #091621;
+}
+/* line 24, modules/ooze.scss */
+.ooze-container .background,
+.ooze-container .background-1 {
+  position: absolute;
+  top: 0;
+}
+/* line 30, modules/ooze.scss */
+.ooze-container .background {
+  left: 8%;
+  width: 85%;
+  z-index: -1;
+}
+/* line 35, modules/ooze.scss */
+.ooze-container .background .ooze {
+  background-color: #0D2133;
+}
+/* line 39, modules/ooze.scss */
+.ooze-container .background .ooze .top span {
+  border: solid 200px #0D2133;
+}
+/* line 44, modules/ooze.scss */
+.ooze-container .background .ooze .end {
+  background-color: #0D2133;
+}
+/* line 50, modules/ooze.scss */
+.ooze-container .background-1 {
+  right: -2%;
+  width: 98%;
+  z-index: -2;
+}
+/* line 55, modules/ooze.scss */
+.ooze-container .background-1 .ooze {
+  background-color: #000;
+}
+/* line 59, modules/ooze.scss */
+.ooze-container .background-1 .ooze .top span {
+  border: solid 200px #000;
+}
+/* line 64, modules/ooze.scss */
+.ooze-container .background-1 .ooze .end {
+  background-color: #000;
+}
+/* line 70, modules/ooze.scss */
 .ooze-container .ooze {
   background-color: #091621;
   min-height: 85px;
   width: 100%;
 }
-/* line 21, modules/ooze.scss */
+/* line 75, modules/ooze.scss */
 .ooze-container .ooze.stay {
   background-color: transparent;
   min-height: 0;
   padding: 50% 50% 0;
 }
-/* line 27, modules/ooze.scss */
+/* line 81, modules/ooze.scss */
 .ooze-container .ooze .top {
   height: 100%;
   left: 0;
@@ -7848,7 +7848,7 @@ ship.triggered .instructions {
   width: 100%;
   z-index: 1;
 }
-/* line 36, modules/ooze.scss */
+/* line 90, modules/ooze.scss */
 .ooze-container .ooze .top span {
   border: solid 200px #091621;
   border-radius: 100%;
@@ -7858,7 +7858,7 @@ ship.triggered .instructions {
   position: absolute;
   width: 200% !important;
 }
-/* line 47, modules/ooze.scss */
+/* line 101, modules/ooze.scss */
 .ooze-container .ooze .end {
   background-color: #091621;
   border-radius: 100%;
@@ -7868,6 +7868,148 @@ ship.triggered .instructions {
   margin-bottom: -50%;
   padding: 50%;
   position: absolute;
+}
+
+/* line 9, modules/space.scss */
+.space {
+  background-color: #f7e9cf;
+  position: relative;
+  z-index: 9;
+}
+/* line 14, modules/space.scss */
+.space .space-inner {
+  margin-top: -10vh;
+  position: absolute;
+  width: 100%;
+}
+/* line 20, modules/space.scss */
+.space .planet {
+  left: 10%;
+  position: absolute;
+  top: 5%;
+  transform-style: preserve-3d;
+  width: 70vh;
+  z-index: 1;
+}
+/* line 28, modules/space.scss */
+.space .planet.planet2 {
+  left: 0;
+  top: 30px;
+  width: 30vh;
+  z-index: 0;
+}
+/* line 35, modules/space.scss */
+.space .planet .loop-container {
+  padding-top: 100%;
+  width: 100%;
+}
+/* line 39, modules/space.scss */
+.space .planet .loop-container span {
+  border-radius: 100%;
+  position: absolute;
+}
+/* line 45, modules/space.scss */
+.space .planet .loop-container span:nth-child(1) {
+  background-color: #239a96;
+  left: 0%;
+  opacity: 0.85;
+  padding: 50%;
+  top: 0%;
+  width: 50%;
+}
+/* line 54, modules/space.scss */
+.space .planet .loop-container span:nth-child(1).red {
+  background-color: #ec5528;
+}
+/* line 45, modules/space.scss */
+.space .planet .loop-container span:nth-child(2) {
+  background-color: #00857c;
+  left: 1%;
+  opacity: 0.7;
+  padding: 45%;
+  top: 5%;
+  width: 45%;
+}
+/* line 54, modules/space.scss */
+.space .planet .loop-container span:nth-child(2).red {
+  background-color: #c74d26;
+}
+/* line 45, modules/space.scss */
+.space .planet .loop-container span:nth-child(3) {
+  background-color: #018144;
+  left: 2%;
+  opacity: 0.55;
+  padding: 40%;
+  top: 10%;
+  width: 40%;
+}
+/* line 54, modules/space.scss */
+.space .planet .loop-container span:nth-child(3).red {
+  background-color: #c42126;
+}
+/* line 45, modules/space.scss */
+.space .planet .loop-container span:nth-child(4) {
+  background-color: #007642;
+  left: 3%;
+  opacity: 0.4;
+  padding: 35%;
+  top: 15%;
+  width: 35%;
+}
+/* line 54, modules/space.scss */
+.space .planet .loop-container span:nth-child(4).red {
+  background-color: #d91f2a;
+}
+/* line 45, modules/space.scss */
+.space .planet .loop-container span:nth-child(5) {
+  background-color: #006940;
+  left: 4%;
+  opacity: 0.25;
+  padding: 30%;
+  top: 20%;
+  width: 30%;
+}
+/* line 54, modules/space.scss */
+.space .planet .loop-container span:nth-child(5).red {
+  background-color: #ba1f2f;
+}
+/* line 63, modules/space.scss */
+.space .planet .rings {
+  border-radius: 100%;
+  height: 200%;
+  left: -50%;
+  position: absolute;
+  top: -50%;
+  width: 200%;
+  transform: rotateX(-100deg) rotateY(40deg);
+  transform-style: preserve-3d;
+}
+/* line 74, modules/space.scss */
+.space .planet .rings span {
+  border-radius: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/* line 84, modules/space.scss */
+.space .planet .rings span:nth-child(1) {
+  border: solid 80px #c6212a;
+  margin: 80px;
+  opacity: 0.95;
+}
+/* line 84, modules/space.scss */
+.space .planet .rings span:nth-child(2) {
+  border: solid 80px #741c58;
+  margin: 160px;
+  opacity: 0.9;
+}
+/* line 84, modules/space.scss */
+.space .planet .rings span:nth-child(3) {
+  border: solid 80px #fba631;
+  margin: 240px;
+  opacity: 0.85;
 }
 
 /*# sourceMappingURL=main.css.map */

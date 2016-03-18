@@ -38,4 +38,16 @@ h2 {
 	@media (min-width: $screen-md) {
 		font-size: 2vmin;		
 	}
+
+	.show-stuff & {
+		display: none;
+	}
+
+	&.second {
+		display: none;
+
+		.show-stuff & {
+			display: inline-block;
+		}
+	}
 }

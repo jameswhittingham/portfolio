@@ -102,6 +102,114 @@ angular.module('portfolioApp')
 
 
 
+    var scene1 = new ScrollMagic.Scene({
+      triggerElement: ".scene150",
+      duration: "100%",
+      offset: $win.height()/1.5
+    })
+    .setClassToggle(".scene150", "hero-fixed")
+    .addTo(controller);
+
+
+
+    // Scenes for accordion
+    var scene4 = new ScrollMagic.Scene({
+      triggerElement: ".bottom10",
+      duration: "100%",
+      offset: -$win.height()/2 + $win.height()/10 -40
+    })
+    .setClassToggle(".bottom10", "fix-it")
+    .addTo(controller);
+
+    var scene5 = new ScrollMagic.Scene({
+      triggerElement: ".bottom20",
+      duration: "100%",
+      offset: -$win.height()/2 + ($win.height()/10 * 2) -80
+    })
+    .setClassToggle(".bottom20", "fix-it")
+    .addTo(controller);
+
+    var scene6 = new ScrollMagic.Scene({
+      triggerElement: ".bottom30",
+      duration: "100%",
+      offset: -$win.height()/2 + ($win.height()/10 * 3) -120
+    })
+    .setClassToggle(".bottom30", "fix-it")
+    .addTo(controller);
+
+    var scene7 = new ScrollMagic.Scene({
+      triggerElement: ".bottom40",
+      duration: "100%",
+      offset: -$win.height()/2 + ($win.height()/10 * 4) -160
+    })
+    .setClassToggle(".bottom40", "fix-it")
+    .addTo(controller);
+
+    var scene8 = new ScrollMagic.Scene({
+      triggerElement: ".bottom50",
+      duration: "100%",
+      offset: -$win.height()/2 + ($win.height()/10 * 5) -200
+    })
+    .setClassToggle(".bottom50", "fix-it")
+    .addTo(controller);
+
+    var scene9 = new ScrollMagic.Scene({
+      triggerElement: ".bottom60",
+      duration: "100%",
+      offset: -$win.height()/2 + ($win.height()/10 * 6) -240
+    })
+    .setClassToggle(".bottom60", "fix-it")
+    .addTo(controller);
+
+    var scene10 = new ScrollMagic.Scene({
+      triggerElement: ".bottom70",
+      duration: "100%",
+      offset: -$win.height()/2 + ($win.height()/10 * 7) -280
+    })
+    .setClassToggle(".bottom70", "fix-it")
+    .addTo(controller);
+
+    var scene11 = new ScrollMagic.Scene({
+      triggerElement: ".bottom80",
+      duration: "100%",
+      offset: -$win.height()/2 + ($win.height()/10 * 8) -320
+    })
+    .setClassToggle(".bottom80", "fix-it")
+    .addTo(controller);
+
+    var scene12 = new ScrollMagic.Scene({
+      triggerElement: ".bottom90",
+      duration: "100%",
+      offset: -$win.height()/2 + ($win.height()/10 * 9) -360
+    })
+    .setClassToggle(".bottom90", "fix-it")
+    .addTo(controller);
+
+    var scene13 = new ScrollMagic.Scene({
+      triggerElement: ".bottom100",
+      duration: "100%",
+      offset: -$win.height()/2 + ($win.height()/10 * 10) -400
+    })
+    .setClassToggle(".bottom100", "fix-it")
+    .addTo(controller);
+
+
+
+    var scene14 = new ScrollMagic.Scene({
+      triggerElement: ".ooze-container", 
+      duration: $win.height()/2
+    })
+    .addTo(controller)
+    .on("progress", function (e) {
+      var prog = e.progress.toFixed(3);
+
+      $scope.prog = prog;
+      $scope.progHeight = $win.height()/3 * prog;
+      $scope.$apply();
+    });
+
+
+
   }
   initParallax()
 

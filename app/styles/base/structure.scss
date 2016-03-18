@@ -26,7 +26,21 @@ body {
 
 .hero,
 .spacer {
-  height:100vh;
+  height: 100vh;
+
+  &.dark {
+    background-color: #000;
+    position: relative;
+    z-index: 9;
+  }
+
+  &.half {
+    height: 50vh;
+  }
+
+  &.threequarters {
+    height: 75vh;
+  }
 }
 
 .fixed {
