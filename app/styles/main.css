@@ -6905,6 +6905,20 @@ button.close {
     top: 5px;
   }
 }
+@keyframes rotateRing {
+  0% {
+    -webkit-transform: rotateX(-100deg) rotateY(40deg) rotateZ(0deg);
+    -ms-transform: rotateX(-100deg) rotateY(40deg) rotateZ(0deg);
+    -o-transform: rotateX(-100deg) rotateY(40deg) rotateZ(0deg);
+    transform: rotateX(-100deg) rotateY(40deg) rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(-100deg) rotateY(40deg) rotateZ(360deg);
+    -ms-transform: rotateX(-100deg) rotateY(40deg) rotateZ(360deg);
+    -o-transform: rotateX(-100deg) rotateY(40deg) rotateZ(360deg);
+    transform: rotateX(-100deg) rotateY(40deg) rotateZ(360deg);
+  }
+}
 /*
 @font-face {
 	font-family: 'icomoon';
@@ -6941,17 +6955,30 @@ button.close {
 /* line 29, base/icons.scss */
 .icon-container .icon {
   display: block;
-  height: 100px;
+  height: 50px;
   margin: 0 auto 0 -50px;
   position: relative;
   top: 0px;
-  width: 100px;
+  width: 50px;
 }
-/* line 37, base/icons.scss */
+@media (min-width: 768px) {
+  /* line 29, base/icons.scss */
+  .icon-container .icon {
+    height: 100px;
+    width: 100px;
+  }
+}
+/* line 42, base/icons.scss */
 .icon-container .icon .icon-image {
   background-color: #fff;
 }
-/* line 41, base/icons.scss */
+/* line 45, base/icons.scss */
+.icon-container .icon .icon-image img {
+  height: 80%;
+  margin: 10%;
+  width: 80%;
+}
+/* line 52, base/icons.scss */
 .icon-container .icon:before,
 .icon-container .icon .icon-image {
   border: solid 2px #ddd;
@@ -6964,18 +6991,18 @@ button.close {
   top: 0px;
   width: 100%;
 }
-/* line 53, base/icons.scss */
+/* line 64, base/icons.scss */
 .icon-container .icon:before img,
 .icon-container .icon .icon-image img {
   display: block;
   margin: 8% auto 0;
   width: 84%;
 }
-/* line 60, base/icons.scss */
+/* line 71, base/icons.scss */
 .icon-container .icon:before {
   opacity: 1;
 }
-/* line 67, base/icons.scss */
+/* line 78, base/icons.scss */
 .icon-container .icon:hover:before, .icon-container .icon.selected:before {
   border: solid 1px #ddd;
   transform: scale(2, 2);
@@ -7107,6 +7134,24 @@ h2.second {
 .show-stuff h2.second {
   display: inline-block;
 }
+/* line 54, base/typography.scss */
+h2.alt {
+  color: #00857c;
+  display: inline-block;
+  -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(transparent, transparent), #00857c url(../../images/bg.png) repeat;
+  background: -o-linear-gradient(transparent, transparent);
+  -webkit-background-clip: text;
+  background-attachment: fixed;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 0 0 20px;
+  font-size: 230px;
+  font-size: 23rem;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  font-size: 11vmin;
+}
 
 /* line 5, base/vertical-center.scss */
 .vertical-center-wrapper {
@@ -7139,9 +7184,10 @@ body {
 main {
   background: url(../images/bg.png);
   background-attachment: fixed;
+  overflow: hidden;
 }
 
-/* line 14, base/sections.scss */
+/* line 15, base/sections.scss */
 .hero {
   color: #fff;
   opacity: 0;
@@ -7152,7 +7198,7 @@ main {
   -webkit-transition-delay: 1.8s;
   transition-delay: 1.8s;
 }
-/* line 21, base/sections.scss */
+/* line 22, base/sections.scss */
 .loaded .hero {
   opacity: 1;
   filter: alpha(opacity=100);
@@ -7357,7 +7403,7 @@ ship.triggered .instructions {
 .bars.active span {
   /*.loaded & {
   	margin-left: 0 !important;
-  }*/
+  	}*/
 }
 /* line 21, modules/bars.scss */
 .bars.active span:before {
@@ -7390,204 +7436,210 @@ ship.triggered .instructions {
 }
 /* line 45, modules/bars.scss */
 .bars span:before, .bars span:after {
-  border: solid 150px;
+  border: solid 100px;
   content: "";
   height: 100%;
   position: absolute;
   top: 0;
   width: 100%;
 }
-/* line 55, modules/bars.scss */
+@media (min-height: 768px) {
+  /* line 45, modules/bars.scss */
+  .bars span:before, .bars span:after {
+    border: solid 150px;
+  }
+}
+/* line 59, modules/bars.scss */
 .bars span:before {
   border-top: 0;
   left: 0px;
 }
-/* line 60, modules/bars.scss */
+/* line 64, modules/bars.scss */
 .bars span:after {
   border-bottom: 0;
   right: 0px;
 }
-/* line 68, modules/bars.scss */
+/* line 72, modules/bars.scss */
 .bars span:nth-child(1) {
   bottom: 360px;
   margin-left: -110%;
   -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
-/* line 75, modules/bars.scss */
+/* line 79, modules/bars.scss */
 .loaded .bars span:nth-child(1) {
   margin-left: 0 !important;
 }
-/* line 80, modules/bars.scss */
+/* line 84, modules/bars.scss */
 .bars span:nth-child(1).fix-it {
   bottom: auto;
   top: 0%;
 }
-/* line 85, modules/bars.scss */
+/* line 89, modules/bars.scss */
 .bars span:nth-child(1):before {
   border-color: transparent transparent #fffed8 #fffed8;
   left: -90%;
   -webkit-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
-/* line 92, modules/bars.scss */
+/* line 96, modules/bars.scss */
 .bars span:nth-child(1):after {
   border-color: #fffed8 #fffed8 transparent transparent;
   left: 5%;
   -webkit-animation-delay: 0.7s;
   animation-delay: 0.7s;
 }
-/* line 68, modules/bars.scss */
+/* line 72, modules/bars.scss */
 .bars span:nth-child(2) {
   bottom: 320px;
   margin-left: -120%;
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s;
 }
-/* line 75, modules/bars.scss */
+/* line 79, modules/bars.scss */
 .loaded .bars span:nth-child(2) {
   margin-left: 0 !important;
 }
-/* line 80, modules/bars.scss */
+/* line 84, modules/bars.scss */
 .bars span:nth-child(2).fix-it {
   bottom: auto;
   top: 10%;
 }
-/* line 85, modules/bars.scss */
+/* line 89, modules/bars.scss */
 .bars span:nth-child(2):before {
   border-color: transparent transparent #fed5a1 #fed5a1;
   left: -80%;
   -webkit-animation-delay: 0.7s;
   animation-delay: 0.7s;
 }
-/* line 92, modules/bars.scss */
+/* line 96, modules/bars.scss */
 .bars span:nth-child(2):after {
   border-color: #fed5a1 #fed5a1 transparent transparent;
   left: 15%;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
-/* line 68, modules/bars.scss */
+/* line 72, modules/bars.scss */
 .bars span:nth-child(3) {
   bottom: 280px;
   margin-left: -130%;
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
 }
-/* line 75, modules/bars.scss */
+/* line 79, modules/bars.scss */
 .loaded .bars span:nth-child(3) {
   margin-left: 0 !important;
 }
-/* line 80, modules/bars.scss */
+/* line 84, modules/bars.scss */
 .bars span:nth-child(3).fix-it {
   bottom: auto;
   top: 20%;
 }
-/* line 85, modules/bars.scss */
+/* line 89, modules/bars.scss */
 .bars span:nth-child(3):before {
   border-color: transparent transparent #f99533 #f99533;
   left: -70%;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
-/* line 92, modules/bars.scss */
+/* line 96, modules/bars.scss */
 .bars span:nth-child(3):after {
   border-color: #f99533 #f99533 transparent transparent;
   left: 25%;
   -webkit-animation-delay: 0.9s;
   animation-delay: 0.9s;
 }
-/* line 68, modules/bars.scss */
+/* line 72, modules/bars.scss */
 .bars span:nth-child(4) {
   bottom: 240px;
   margin-left: -140%;
   -webkit-transition-delay: 0.4s;
   transition-delay: 0.4s;
 }
-/* line 75, modules/bars.scss */
+/* line 79, modules/bars.scss */
 .loaded .bars span:nth-child(4) {
   margin-left: 0 !important;
 }
-/* line 80, modules/bars.scss */
+/* line 84, modules/bars.scss */
 .bars span:nth-child(4).fix-it {
   bottom: auto;
   top: 30%;
 }
-/* line 85, modules/bars.scss */
+/* line 89, modules/bars.scss */
 .bars span:nth-child(4):before {
   border-color: transparent transparent #f18233 #f18233;
   left: -60%;
   -webkit-animation-delay: 0.9s;
   animation-delay: 0.9s;
 }
-/* line 92, modules/bars.scss */
+/* line 96, modules/bars.scss */
 .bars span:nth-child(4):after {
   border-color: #f18233 #f18233 transparent transparent;
   left: 35%;
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
 }
-/* line 68, modules/bars.scss */
+/* line 72, modules/bars.scss */
 .bars span:nth-child(5) {
   bottom: 200px;
   margin-left: -150%;
   -webkit-transition-delay: 0.5s;
   transition-delay: 0.5s;
 }
-/* line 75, modules/bars.scss */
+/* line 79, modules/bars.scss */
 .loaded .bars span:nth-child(5) {
   margin-left: 0 !important;
 }
-/* line 80, modules/bars.scss */
+/* line 84, modules/bars.scss */
 .bars span:nth-child(5).fix-it {
   bottom: auto;
   top: 40%;
 }
-/* line 85, modules/bars.scss */
+/* line 89, modules/bars.scss */
 .bars span:nth-child(5):before {
   border-color: transparent transparent #df6d31 #df6d31;
   left: -50%;
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
 }
-/* line 92, modules/bars.scss */
+/* line 96, modules/bars.scss */
 .bars span:nth-child(5):after {
   border-color: #df6d31 #df6d31 transparent transparent;
   left: 45%;
   -webkit-animation-delay: 1.1s;
   animation-delay: 1.1s;
 }
-/* line 68, modules/bars.scss */
+/* line 72, modules/bars.scss */
 .bars span:nth-child(6) {
   bottom: 160px;
   margin-left: -160%;
   -webkit-transition-delay: 0.6s;
   transition-delay: 0.6s;
 }
-/* line 75, modules/bars.scss */
+/* line 79, modules/bars.scss */
 .loaded .bars span:nth-child(6) {
   margin-left: 0 !important;
 }
-/* line 80, modules/bars.scss */
+/* line 84, modules/bars.scss */
 .bars span:nth-child(6).fix-it {
   bottom: auto;
   top: 50%;
 }
-/* line 85, modules/bars.scss */
+/* line 89, modules/bars.scss */
 .bars span:nth-child(6):before {
   border-color: transparent transparent #d65f34 #d65f34;
   left: -40%;
   -webkit-animation-delay: 1.1s;
   animation-delay: 1.1s;
 }
-/* line 92, modules/bars.scss */
+/* line 96, modules/bars.scss */
 .bars span:nth-child(6):after {
   border-color: #d65f34 #d65f34 transparent transparent;
   left: 55%;
   -webkit-animation-delay: 1.2s;
   animation-delay: 1.2s;
 }
-/* line 68, modules/bars.scss */
+/* line 72, modules/bars.scss */
 .bars span:nth-child(7) {
   bottom: 120px;
   margin-left: -170%;
@@ -7595,30 +7647,30 @@ ship.triggered .instructions {
   transition-delay: 0.7s;
   z-index: 2;
 }
-/* line 75, modules/bars.scss */
+/* line 79, modules/bars.scss */
 .loaded .bars span:nth-child(7) {
   margin-left: 0 !important;
 }
-/* line 80, modules/bars.scss */
+/* line 84, modules/bars.scss */
 .bars span:nth-child(7).fix-it {
   bottom: auto;
   top: 60%;
 }
-/* line 85, modules/bars.scss */
+/* line 89, modules/bars.scss */
 .bars span:nth-child(7):before {
   border-color: transparent transparent #ab4134 #ab4134;
   left: -30%;
   -webkit-animation-delay: 1.2s;
   animation-delay: 1.2s;
 }
-/* line 92, modules/bars.scss */
+/* line 96, modules/bars.scss */
 .bars span:nth-child(7):after {
   border-color: #ab4134 #ab4134 transparent transparent;
   left: 65%;
   -webkit-animation-delay: 1.3s;
   animation-delay: 1.3s;
 }
-/* line 68, modules/bars.scss */
+/* line 72, modules/bars.scss */
 .bars span:nth-child(8) {
   bottom: 80px;
   margin-left: -180%;
@@ -7626,30 +7678,30 @@ ship.triggered .instructions {
   transition-delay: 0.8s;
   z-index: 2;
 }
-/* line 75, modules/bars.scss */
+/* line 79, modules/bars.scss */
 .loaded .bars span:nth-child(8) {
   margin-left: 0 !important;
 }
-/* line 80, modules/bars.scss */
+/* line 84, modules/bars.scss */
 .bars span:nth-child(8).fix-it {
   bottom: auto;
   top: 70%;
 }
-/* line 85, modules/bars.scss */
+/* line 89, modules/bars.scss */
 .bars span:nth-child(8):before {
   border-color: transparent transparent #7B2F25 #7B2F25;
   left: -20%;
   -webkit-animation-delay: 1.3s;
   animation-delay: 1.3s;
 }
-/* line 92, modules/bars.scss */
+/* line 96, modules/bars.scss */
 .bars span:nth-child(8):after {
   border-color: #7B2F25 #7B2F25 transparent transparent;
   left: 75%;
   -webkit-animation-delay: 1.4s;
   animation-delay: 1.4s;
 }
-/* line 68, modules/bars.scss */
+/* line 72, modules/bars.scss */
 .bars span:nth-child(9) {
   bottom: 40px;
   margin-left: -190%;
@@ -7657,30 +7709,30 @@ ship.triggered .instructions {
   transition-delay: 0.9s;
   z-index: 2;
 }
-/* line 75, modules/bars.scss */
+/* line 79, modules/bars.scss */
 .loaded .bars span:nth-child(9) {
   margin-left: 0 !important;
 }
-/* line 80, modules/bars.scss */
+/* line 84, modules/bars.scss */
 .bars span:nth-child(9).fix-it {
   bottom: auto;
   top: 80%;
 }
-/* line 85, modules/bars.scss */
+/* line 89, modules/bars.scss */
 .bars span:nth-child(9):before {
   border-color: transparent transparent #5F160C #5F160C;
   left: -10%;
   -webkit-animation-delay: 1.4s;
   animation-delay: 1.4s;
 }
-/* line 92, modules/bars.scss */
+/* line 96, modules/bars.scss */
 .bars span:nth-child(9):after {
   border-color: #5F160C #5F160C transparent transparent;
   left: 85%;
   -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
 }
-/* line 68, modules/bars.scss */
+/* line 72, modules/bars.scss */
 .bars span:nth-child(10) {
   bottom: 0px;
   margin-left: -200%;
@@ -7688,23 +7740,23 @@ ship.triggered .instructions {
   transition-delay: 1s;
   z-index: 2;
 }
-/* line 75, modules/bars.scss */
+/* line 79, modules/bars.scss */
 .loaded .bars span:nth-child(10) {
   margin-left: 0 !important;
 }
-/* line 80, modules/bars.scss */
+/* line 84, modules/bars.scss */
 .bars span:nth-child(10).fix-it {
   bottom: auto;
   top: 90%;
 }
-/* line 85, modules/bars.scss */
+/* line 89, modules/bars.scss */
 .bars span:nth-child(10):before {
   border-color: transparent transparent #380700 #380700;
   left: 0%;
   -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
 }
-/* line 92, modules/bars.scss */
+/* line 96, modules/bars.scss */
 .bars span:nth-child(10):after {
   border-color: #380700 #380700 transparent transparent;
   left: 95%;
@@ -7872,43 +7924,59 @@ ship.triggered .instructions {
 
 /* line 9, modules/space.scss */
 .space {
-  background-color: #f7e9cf;
+  background-color: #fed5a1;
+  background-image: url(../images/bg-texture-2.png);
+  border-radius: 15px;
+  height: 85vh;
   position: relative;
-  z-index: 9;
+  z-index: 10;
+  -webkit-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
+  transform: rotate(-5deg);
 }
-/* line 14, modules/space.scss */
+/* line 19, modules/space.scss */
 .space .space-inner {
   margin-top: -10vh;
   position: absolute;
   width: 100%;
 }
-/* line 20, modules/space.scss */
+/* line 25, modules/space.scss */
+.space .space-inner-text {
+  float: right;
+  height: 100%;
+  text-align: center;
+  width: 45%;
+}
+/* line 32, modules/space.scss */
 .space .planet {
   left: 10%;
+  max-width: 800px;
   position: absolute;
   top: 5%;
   transform-style: preserve-3d;
-  width: 70vh;
+  width: 50vw;
   z-index: 1;
 }
-/* line 28, modules/space.scss */
+/* line 41, modules/space.scss */
 .space .planet.planet2 {
   left: 0;
   top: 30px;
-  width: 30vh;
+  width: 30vw;
   z-index: 0;
 }
-/* line 35, modules/space.scss */
+/* line 48, modules/space.scss */
 .space .planet .loop-container {
   padding-top: 100%;
   width: 100%;
 }
-/* line 39, modules/space.scss */
+/* line 52, modules/space.scss */
 .space .planet .loop-container span {
+  background-image: url(../images/bg-texture-2.png);
   border-radius: 100%;
   position: absolute;
 }
-/* line 45, modules/space.scss */
+/* line 59, modules/space.scss */
 .space .planet .loop-container span:nth-child(1) {
   background-color: #239a96;
   left: 0%;
@@ -7917,11 +7985,11 @@ ship.triggered .instructions {
   top: 0%;
   width: 50%;
 }
-/* line 54, modules/space.scss */
+/* line 68, modules/space.scss */
 .space .planet .loop-container span:nth-child(1).red {
   background-color: #ec5528;
 }
-/* line 45, modules/space.scss */
+/* line 59, modules/space.scss */
 .space .planet .loop-container span:nth-child(2) {
   background-color: #00857c;
   left: 1%;
@@ -7930,11 +7998,11 @@ ship.triggered .instructions {
   top: 5%;
   width: 45%;
 }
-/* line 54, modules/space.scss */
+/* line 68, modules/space.scss */
 .space .planet .loop-container span:nth-child(2).red {
   background-color: #c74d26;
 }
-/* line 45, modules/space.scss */
+/* line 59, modules/space.scss */
 .space .planet .loop-container span:nth-child(3) {
   background-color: #018144;
   left: 2%;
@@ -7943,11 +8011,11 @@ ship.triggered .instructions {
   top: 10%;
   width: 40%;
 }
-/* line 54, modules/space.scss */
+/* line 68, modules/space.scss */
 .space .planet .loop-container span:nth-child(3).red {
   background-color: #c42126;
 }
-/* line 45, modules/space.scss */
+/* line 59, modules/space.scss */
 .space .planet .loop-container span:nth-child(4) {
   background-color: #007642;
   left: 3%;
@@ -7956,11 +8024,11 @@ ship.triggered .instructions {
   top: 15%;
   width: 35%;
 }
-/* line 54, modules/space.scss */
+/* line 68, modules/space.scss */
 .space .planet .loop-container span:nth-child(4).red {
   background-color: #d91f2a;
 }
-/* line 45, modules/space.scss */
+/* line 59, modules/space.scss */
 .space .planet .loop-container span:nth-child(5) {
   background-color: #006940;
   left: 4%;
@@ -7969,11 +8037,11 @@ ship.triggered .instructions {
   top: 20%;
   width: 30%;
 }
-/* line 54, modules/space.scss */
+/* line 68, modules/space.scss */
 .space .planet .loop-container span:nth-child(5).red {
   background-color: #ba1f2f;
 }
-/* line 63, modules/space.scss */
+/* line 77, modules/space.scss */
 .space .planet .rings {
   border-radius: 100%;
   height: 200%;
@@ -7982,9 +8050,8 @@ ship.triggered .instructions {
   top: -50%;
   width: 200%;
   transform: rotateX(-100deg) rotateY(40deg);
-  transform-style: preserve-3d;
 }
-/* line 74, modules/space.scss */
+/* line 88, modules/space.scss */
 .space .planet .rings span {
   border-radius: 100%;
   bottom: 0;
@@ -7993,23 +8060,61 @@ ship.triggered .instructions {
   right: 0;
   top: 0;
 }
-/* line 84, modules/space.scss */
+/* line 98, modules/space.scss */
 .space .planet .rings span:nth-child(1) {
   border: solid 80px #c6212a;
-  margin: 80px;
+  margin: 10px;
   opacity: 0.95;
 }
-/* line 84, modules/space.scss */
+@media (min-width: 768px) {
+  /* line 98, modules/space.scss */
+  .space .planet .rings span:nth-child(1) {
+    margin: 80px;
+  }
+}
+/* line 98, modules/space.scss */
 .space .planet .rings span:nth-child(2) {
   border: solid 80px #741c58;
-  margin: 160px;
+  margin: 20px;
   opacity: 0.9;
 }
-/* line 84, modules/space.scss */
+@media (min-width: 768px) {
+  /* line 98, modules/space.scss */
+  .space .planet .rings span:nth-child(2) {
+    margin: 160px;
+  }
+}
+/* line 98, modules/space.scss */
 .space .planet .rings span:nth-child(3) {
   border: solid 80px #fba631;
-  margin: 240px;
+  margin: 30px;
   opacity: 0.85;
+}
+@media (min-width: 768px) {
+  /* line 98, modules/space.scss */
+  .space .planet .rings span:nth-child(3) {
+    margin: 240px;
+  }
+}
+/* line 111, modules/space.scss */
+.space .planet .skills {
+  height: 200%;
+  left: -50%;
+  position: absolute;
+  top: -50%;
+  transform-style: preserve-3d;
+  width: 200%;
+  -webkit-animation: rotateRing 60s infinite linear;
+  -o-animation: rotateRing 60s infinite linear;
+  animation: rotateRing 60s infinite linear;
+}
+/* line 121, modules/space.scss */
+.space .planet .skills .icon-container {
+  transform-style: preserve-3d;
+}
+/* line 124, modules/space.scss */
+.space .planet .skills .icon-container .icon {
+  transform: rotateX(90deg) !important;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -28,14 +28,25 @@
 
   .icon {
     display: block;
-    height: 100px;
+    height: 50px;
     margin: 0 auto 0 -50px;
     position: relative;
     top: 0px;
-    width: 100px;
+    width: 50px;
+
+    @media(min-width: $screen-sm) {
+    	height: 100px;
+    	width: 100px;
+    }
 
     .icon-image {
       background-color: #fff;
+
+      img {
+      	height: 80%;
+      	margin: 10%;
+      	width: 80%;
+      }
     }
 
     &:before,

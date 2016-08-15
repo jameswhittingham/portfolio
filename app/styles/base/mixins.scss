@@ -12,3 +12,10 @@
 	$ls:($spacing/1000);
 	letter-spacing: $ls * 1em;
 }
+
+@mixin rotateSkills($degrees) {
+  -webkit-transform: rotateX(-100deg) rotateY(40deg) rotateZ($degrees);
+      -ms-transform: rotateX(-100deg) rotateY(40deg) rotateZ($degrees); // IE9 only
+       -o-transform: rotateX(-100deg) rotateY(40deg) rotateZ($degrees);
+          transform: rotateX(-100deg) rotateY(40deg) rotateZ($degrees);
+}

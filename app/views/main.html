@@ -246,6 +246,16 @@
           <span></span>
           <span></span>
         </div>
+
+				<div class="skills">
+	        <rotate ng-repeat="skill in skills" class="icon-container" data-index="{{$index}}" data-count="{{skills.length}}" data-multiply="1">
+	          <rotate class="icon" ng-class="{ 'selected' : selectedItem == $index }" data-index="{{$index}}" data-count="{{skills.length}}" data-multiply="-1">
+	            <div class="icon-image">
+	              <img src="images/{{ skill.image || 'logos/blank.png' }}" />
+	            </div>
+	          </rotate>
+	        </rotate>
+        </div>
       </div>
 
       <div class="planet planet2 red">
@@ -257,6 +267,26 @@
         </div>
       </div>
 
+    </div>
+
+    <div class="space-inner-text">
+    	
+    	<div class="vertical-center-wrapper">
+    		<div class="vertical-center-row">
+    			<div class="vertical-center-cell">
+    				
+    				<h2 class="alt">My World</h2>
+    				<p>Code code Code code Code code Code code Code code Code code Code code Code </p>
+    				<p>code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code Code code</p>
+    				<p>Code code Code code Code code Code</p>
+   					<p>code Code code Code code Code code Code </p>
+    				<p>Code code Code code Code code Code code Code code Code code Code code Code Code code Code code Code code Code code Code code Code code Code code Code </p>
+    				<p>Code code Code code Code code Code code Code code Code code Code code Code </p>
+
+    			</div>
+    		</div>
+    	</div>
+    	
     </div>
   
   </div>

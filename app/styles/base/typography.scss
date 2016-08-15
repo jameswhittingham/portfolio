@@ -50,4 +50,22 @@ h2 {
 			display: inline-block;
 		}
 	}
+
+	&.alt {
+		color: #00857c;
+		display: inline-block;
+    -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(transparent, transparent), #00857c url(../../images/bg.png) repeat;
+    background: -o-linear-gradient(transparent, transparent);
+    -webkit-background-clip: text;
+    background-attachment: fixed;
+    font-weight: bold;
+    line-height: 1.2;
+		margin: 0 0 20px;
+
+		@include font-size(23);
+		@include opacity(0.7);
+		
+		font-size: 11vmin;
+	}
 }

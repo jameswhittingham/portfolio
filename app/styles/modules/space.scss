@@ -7,28 +7,41 @@ $reds: #ec5528, #c74d26, #c42126, #d91f2a, #ba1f2f;
 $rings: #c6212a, #741c58, #fba631;
 
 .space {
-	background-color: #f7e9cf;
-    position: relative;
-    z-index: 9;
+	background-color: $color-2;
+	background-image: url(../images/bg-texture-2.png);
+	border-radius: 15px;
+	height: 85vh;
+  position: relative;
+  z-index: 10;
 
-    .space-inner {
-    	margin-top: -10vh;
-    	position: absolute;
-    	width: 100%;
-    }
+	@include rotate(-5deg);
+
+  .space-inner {
+  	margin-top: -10vh;
+  	position: absolute;
+  	width: 100%;
+  }
+
+  .space-inner-text {
+  	float: right;
+  	height: 100%;
+  	text-align: center;
+  	width: 45%;
+  }
 
 	.planet {
 		left: 10%;
+		max-width: 800px;
 		position: absolute;
 		top: 5%;
 		transform-style: preserve-3d;
-		width: 70vh;
+		width: 50vw;
 		z-index: 1;
 
 		&.planet2 {
 			left: 0;
 			top: 30px;
-			width: 30vh;
+			width: 30vw;
 			z-index: 0;
 		}
 
@@ -37,6 +50,7 @@ $rings: #c6212a, #741c58, #fba631;
 			width: 100%;
 
 			span {
+				background-image: url(../images/bg-texture-2.png);
 				border-radius: 100%;
 				position: absolute;
 
@@ -69,7 +83,7 @@ $rings: #c6212a, #741c58, #fba631;
 			width: 200%;
 
 			transform: rotateX(-100deg) rotateY(40deg);
-			transform-style: preserve-3d;
+			//transform-style: preserve-3d;
 
 			span {
 				border-radius: 100%;
@@ -81,11 +95,34 @@ $rings: #c6212a, #741c58, #fba631;
 
 				$ringsElements: 4;
 				@for $i from 1 to $ringsElements {
-				  	&:nth-child(#{$i}) {
+				  &:nth-child(#{$i}) {
 						border: solid 80px nth($rings, $i);
-						margin: 80px * $i;
+						margin: 10px * $i;
 						opacity: 1 - (0.05 * $i);
-				  	}
+
+						@media(min-width: $screen-sm) {
+							margin: 80px * $i;
+						}
+				  }
+				}
+			}
+		}
+
+		.skills {
+			height: 200%;
+			left: -50%;
+			position: absolute;
+			top: -50%;
+			transform-style: preserve-3d;
+			width: 200%;
+
+			@include animation(rotateRing 60s infinite linear);
+
+			.icon-container {
+				transform-style: preserve-3d;
+
+				.icon {
+					transform: rotateX(90deg) !important;
 				}
 			}
 		}

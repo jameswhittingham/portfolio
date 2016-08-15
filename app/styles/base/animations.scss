@@ -57,3 +57,12 @@
         top: 5px;
     }
 }
+
+@keyframes rotateRing {
+    0% {
+      @include rotateSkills(0deg);
+    }
+    100% {
+    	@include rotateSkills(360deg);
+    }
+}

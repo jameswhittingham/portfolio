@@ -16,91 +16,95 @@
 		span {
 			/*.loaded & {
 				margin-left: 0 !important;
-			}*/
+				}*/
 
-			&:before {				
-				@include animation(sway 5s infinite);
-			}
-
-			&:after {
-				@include animation(sway 5s infinite);
-				@include animation-delay(0.5s);
-			}
-		}
-	}
-
-	span {
-		bottom: 0px;
-		display: block;
-		height: 10vh;
-		position: absolute;
-		width: 100%;
-
-		@include transition(all 0.8s);
-
-		&.fix-it {
-			position: fixed;
-		}
-
-		&:before,
-		&:after {
-			border: solid 150px;
-			content: "";
-			height: 100%;
-			position: absolute;
-			top: 0;
-			width: 100%;
-		}
-
-		&:before {
-			border-top: 0;
-			left: 0px;
-		}
-
-		&:after {
-			border-bottom: 0;
-			right: 0px;
-		}
-
-		$elements: 11;
-		$colors: $color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7, $color-8, $color-9, $color-10;
-		@for $i from 1 to $elements {
-		  	&:nth-child(#{$i}) {
-				
-				bottom: 400px + $i*-40;
-			    margin-left: -100% + $i*-10;
-
-				@include transition-delay(0.1s*$i);
-
-				.loaded & { 
-					margin-left: 0 !important;
-				}
-				
-
-				&.fix-it {
-					bottom: auto;
-					top: -10% + $i*10;
-				}
-
-				&:before {
-					border-color: transparent transparent nth($colors, $i) nth($colors, $i);
-					left: -100% + $i*10;
-
-					@include animation-delay(0.5s+(0.1s*$i));
+				&:before {				
+					@include animation(sway 5s infinite);
 				}
 
 				&:after {
-	    			border-color: nth($colors, $i) nth($colors, $i) transparent transparent;
-	    			left: -5% + $i*10;
+					@include animation(sway 5s infinite);
+					@include animation-delay(0.5s);
+				}
+			}
+		}
 
-	    			@include animation-delay(0.6s+(0.1s*$i));
-	    		}
+		span {
+			bottom: 0px;
+			display: block;
+			height: 10vh;
+			position: absolute;
+			width: 100%;
 
-	    		@if $i > 6 {
-					z-index: 2;
-	    		}
+			@include transition(all 0.8s);
 
-		  	}
+			&.fix-it {
+				position: fixed;
+			}
+
+			&:before,
+			&:after {
+				border: solid 100px;
+				content: "";
+				height: 100%;
+				position: absolute;
+				top: 0;
+				width: 100%;
+
+				@media(min-height: $screen-sm) {
+					border: solid 150px;
+				}
+			}
+
+			&:before {
+				border-top: 0;
+				left: 0px;
+			}
+
+			&:after {
+				border-bottom: 0;
+				right: 0px;
+			}
+
+			$elements: 11;
+			$colors: $color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7, $color-8, $color-9, $color-10;
+			@for $i from 1 to $elements {
+				&:nth-child(#{$i}) {
+
+					bottom: 400px + $i*-40;
+					margin-left: -100% + $i*-10;
+
+					@include transition-delay(0.1s*$i);
+
+					.loaded & { 
+						margin-left: 0 !important;
+					}
+
+
+					&.fix-it {
+						bottom: auto;
+						top: -10% + $i*10;
+					}
+
+					&:before {
+						border-color: transparent transparent nth($colors, $i) nth($colors, $i);
+						left: -100% + $i*10;
+
+						@include animation-delay(0.5s+(0.1s*$i));
+					}
+
+					&:after {
+						border-color: nth($colors, $i) nth($colors, $i) transparent transparent;
+						left: -5% + $i*10;
+
+						@include animation-delay(0.6s+(0.1s*$i));
+					}
+
+					@if $i > 6 {
+						z-index: 2;
+					}
+
+				}
+			}
 		}
 	}
-}
